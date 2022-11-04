@@ -1,0 +1,46 @@
+package com.javateam.dummyRJA.controller;
+
+import java.io.IOException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.javateam.dummyRJA.service.UserService;
+import com.javateam.dummyRJA.service.OrderService;
+import com.javateam.dummyRJA.service.ProductService;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Controller
+@Slf4j
+public class HomeController {
+	
+	//@Autowired
+	//DummyService dummySvc;
+	
+	@Autowired
+	ProductService productSvc;
+	//UserService userSvc;
+	//OrderService orderSvc;
+	
+	@GetMapping("/")
+	public String home(Model model) throws ClassNotFoundException, IOException {
+		
+		//log.info("home");
+		
+		//직렬화
+		//productSvc.crawlProducts();
+		
+		//역직렬화
+		model.addAttribute("prList", productSvc.getProductListFromSerFile("ser/ProductListDummy.ser"));
+		
+		
+		// 역직렬화 : ProductList.ser => List<ProductVO>
+		//model.addAttribute("prList", dummySvc.getProductsFromSerFile());
+		
+		return "home"; 
+	}
+
+}

@@ -1,0 +1,719 @@
+2022-11-04 09:47:19.456 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:271)] -- Root WebApplicationContext: initialization started
+2022-11-04 09:47:20.338 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)] -- Root WebApplicationContext initialized in 863 ms
+2022-11-04 09:47:20.552 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)] -- Initializing Servlet 'appServlet'
+2022-11-04 09:47:21.864 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547)] -- Completed initialization in 1311 ms
+2022-11-04 09:48:55.469 [INFO ] [com.javateam.dummyProject.service.ProductService] [http-nio-8282-exec-2] [com.javateam.dummyProject.service.ProductService.crawlProducts(ProductService.java:221)] -- 직렬화 시작
+2022-11-04 09:48:55.469 [ERROR] [com.javateam.dummyProject.service.ProductService] [http-nio-8282-exec-2] [com.javateam.dummyProject.service.ProductService.crawlProducts(ProductService.java:234)] -- 직렬화 저장 에러 : java.io.FileNotFoundException: C:\Users\TJ\Desktop\Spring\eGovFrameDev-3.9.0-64bit\eclipse\src\main\resources\ser\ProductListDummy.ser (지정된 경로를 찾을 수 없습니다)
+2022-11-04 09:48:55.471 [INFO ] [com.javateam.dummyProject.service.ProductService] [http-nio-8282-exec-2] [com.javateam.dummyProject.service.ProductService.crawlProducts(ProductService.java:238)] -- 직렬화 종료
+2022-11-04 09:48:55.485 [ERROR] [com.javateam.dummyProject.service.ProductService] [http-nio-8282-exec-2] [com.javateam.dummyProject.service.ProductService.getProductListFromSerFile(ProductService.java:258)] -- 직렬화 파일 로딩 오류 : java.lang.ClassNotFoundException: com.javateam.dummyRJA.domain.ProductVO
+2022-11-04 09:59:57.513 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:271)] -- Root WebApplicationContext: initialization started
+2022-11-04 09:59:58.271 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)] -- Root WebApplicationContext initialized in 749 ms
+2022-11-04 09:59:58.314 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)] -- Initializing Servlet 'appServlet'
+2022-11-04 09:59:59.560 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547)] -- Completed initialization in 1245 ms
+2022-11-04 10:02:36.588 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:271)] -- Root WebApplicationContext: initialization started
+2022-11-04 10:02:37.328 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)] -- Root WebApplicationContext initialized in 730 ms
+2022-11-04 10:02:37.372 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)] -- Initializing Servlet 'appServlet'
+2022-11-04 10:02:38.615 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547)] -- Completed initialization in 1243 ms
+2022-11-04 10:07:44.850 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:271)] -- Root WebApplicationContext: initialization started
+2022-11-04 10:07:45.563 [INFO ] [com.zaxxer.hikari.HikariDataSource] [main] [com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:80)] -- HikariPool-1 - Starting...
+2022-11-04 10:07:47.034 [ERROR] [com.zaxxer.hikari.pool.HikariPool] [main] [com.zaxxer.hikari.pool.HikariPool.throwPoolInitializationException(HikariPool.java:594)] -- HikariPool-1 - Exception during pool initialization.
+java.sql.SQLException: ORA-01017: invalid username/password; logon denied
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:494) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:441) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:436) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIfun.processError(T4CTTIfun.java:1061) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIoauthenticate.processError(T4CTTIoauthenticate.java:550) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:623) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:252) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:499) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:1279) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:663) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.PhysicalConnection.connect(PhysicalConnection.java:688) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:39) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:691) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at net.sf.log4jdbc.sql.jdbcapi.DriverSpy.connect(DriverSpy.java:399) ~[log4jdbc-log4j2-jdbc4-1.16.jar:?]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81) ~[HikariCP-4.0.3.jar:?]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_331]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source) ~[?:1.8.0_331]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source) ~[?:1.8.0_331]
+	at java.lang.reflect.Constructor.newInstance(Unknown Source) ~[?:1.8.0_331]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:207) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:117) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:310) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:295) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1361) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1208) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:556) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) [spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) [spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) [spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897) [spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879) [spring-context-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551) [spring-context-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:401) [spring-web-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:292) [spring-web-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:103) [spring-web-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4769) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5231) [catalina.jar:9.0.68]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1396) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1386) [catalina.jar:9.0.68]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_331]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) [tomcat-util.jar:9.0.68]
+	at java.util.concurrent.AbstractExecutorService.submit(Unknown Source) [?:1.8.0_331]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:919) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:835) [catalina.jar:9.0.68]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1396) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1386) [catalina.jar:9.0.68]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_331]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) [tomcat-util.jar:9.0.68]
+	at java.util.concurrent.AbstractExecutorService.submit(Unknown Source) [?:1.8.0_331]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:919) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:265) [catalina.jar:9.0.68]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:432) [catalina.jar:9.0.68]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:930) [catalina.jar:9.0.68]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [catalina.jar:9.0.68]
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:772) [catalina.jar:9.0.68]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_331]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_331]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_331]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_331]
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345) [bootstrap.jar:9.0.68]
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:476) [bootstrap.jar:9.0.68]
+2022-11-04 10:07:47.069 [WARN ] [org.springframework.context.support.AbstractApplicationContext] [main] [org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:559)] -- Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in ServletContext resource [/WEB-INF/spring/root-context.xml]: Bean instantiation via constructor failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Constructor threw exception; nested exception is com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: ORA-01017: invalid username/password; logon denied
+
+2022-11-04 10:07:47.086 [ERROR] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:313)] -- Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in ServletContext resource [/WEB-INF/spring/root-context.xml]: Bean instantiation via constructor failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Constructor threw exception; nested exception is com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: ORA-01017: invalid username/password; logon denied
+
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:314) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:295) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1361) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1208) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:556) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879) ~[spring-context-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551) ~[spring-context-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:401) ~[spring-web-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:292) [spring-web-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:103) [spring-web-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4769) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5231) [catalina.jar:9.0.68]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1396) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1386) [catalina.jar:9.0.68]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_331]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) [tomcat-util.jar:9.0.68]
+	at java.util.concurrent.AbstractExecutorService.submit(Unknown Source) [?:1.8.0_331]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:919) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:835) [catalina.jar:9.0.68]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1396) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1386) [catalina.jar:9.0.68]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_331]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) [tomcat-util.jar:9.0.68]
+	at java.util.concurrent.AbstractExecutorService.submit(Unknown Source) [?:1.8.0_331]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:919) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:265) [catalina.jar:9.0.68]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:432) [catalina.jar:9.0.68]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:930) [catalina.jar:9.0.68]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [catalina.jar:9.0.68]
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:772) [catalina.jar:9.0.68]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_331]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_331]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_331]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_331]
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345) [bootstrap.jar:9.0.68]
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:476) [bootstrap.jar:9.0.68]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Constructor threw exception; nested exception is com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: ORA-01017: invalid username/password; logon denied
+
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:220) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:117) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:310) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	... 45 more
+Caused by: com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: ORA-01017: invalid username/password; logon denied
+
+	at com.zaxxer.hikari.pool.HikariPool.throwPoolInitializationException(HikariPool.java:596) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:582) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81) ~[HikariCP-4.0.3.jar:?]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_331]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source) ~[?:1.8.0_331]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source) ~[?:1.8.0_331]
+	at java.lang.reflect.Constructor.newInstance(Unknown Source) ~[?:1.8.0_331]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:207) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:117) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:310) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	... 45 more
+Caused by: java.sql.SQLException: ORA-01017: invalid username/password; logon denied
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:494) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:441) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:436) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIfun.processError(T4CTTIfun.java:1061) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIoauthenticate.processError(T4CTTIoauthenticate.java:550) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:623) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:252) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:499) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:1279) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:663) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.PhysicalConnection.connect(PhysicalConnection.java:688) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:39) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:691) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at net.sf.log4jdbc.sql.jdbcapi.DriverSpy.connect(DriverSpy.java:399) ~[log4jdbc-log4j2-jdbc4-1.16.jar:?]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81) ~[HikariCP-4.0.3.jar:?]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_331]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source) ~[?:1.8.0_331]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source) ~[?:1.8.0_331]
+	at java.lang.reflect.Constructor.newInstance(Unknown Source) ~[?:1.8.0_331]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:207) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:117) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:310) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	... 45 more
+2022-11-04 10:16:28.559 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:271)] -- Root WebApplicationContext: initialization started
+2022-11-04 10:16:29.267 [INFO ] [com.zaxxer.hikari.HikariDataSource] [main] [com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:80)] -- HikariPool-1 - Starting...
+2022-11-04 10:16:30.707 [ERROR] [com.zaxxer.hikari.pool.HikariPool] [main] [com.zaxxer.hikari.pool.HikariPool.throwPoolInitializationException(HikariPool.java:594)] -- HikariPool-1 - Exception during pool initialization.
+java.sql.SQLException: ORA-01017: invalid username/password; logon denied
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:494) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:441) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:436) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIfun.processError(T4CTTIfun.java:1061) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIoauthenticate.processError(T4CTTIoauthenticate.java:550) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:623) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:252) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:499) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:1279) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:663) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.PhysicalConnection.connect(PhysicalConnection.java:688) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:39) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:691) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at net.sf.log4jdbc.sql.jdbcapi.DriverSpy.connect(DriverSpy.java:399) ~[log4jdbc-log4j2-jdbc4-1.16.jar:?]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81) ~[HikariCP-4.0.3.jar:?]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_331]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source) ~[?:1.8.0_331]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source) ~[?:1.8.0_331]
+	at java.lang.reflect.Constructor.newInstance(Unknown Source) ~[?:1.8.0_331]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:207) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:117) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:310) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:295) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1361) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1208) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:556) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) [spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) [spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) [spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897) [spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879) [spring-context-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551) [spring-context-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:401) [spring-web-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:292) [spring-web-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:103) [spring-web-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4769) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5231) [catalina.jar:9.0.68]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1396) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1386) [catalina.jar:9.0.68]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_331]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) [tomcat-util.jar:9.0.68]
+	at java.util.concurrent.AbstractExecutorService.submit(Unknown Source) [?:1.8.0_331]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:919) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:835) [catalina.jar:9.0.68]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1396) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1386) [catalina.jar:9.0.68]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_331]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) [tomcat-util.jar:9.0.68]
+	at java.util.concurrent.AbstractExecutorService.submit(Unknown Source) [?:1.8.0_331]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:919) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:265) [catalina.jar:9.0.68]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:432) [catalina.jar:9.0.68]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:930) [catalina.jar:9.0.68]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [catalina.jar:9.0.68]
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:772) [catalina.jar:9.0.68]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_331]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_331]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_331]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_331]
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345) [bootstrap.jar:9.0.68]
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:476) [bootstrap.jar:9.0.68]
+2022-11-04 10:16:30.746 [WARN ] [org.springframework.context.support.AbstractApplicationContext] [main] [org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:559)] -- Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in ServletContext resource [/WEB-INF/spring/root-context.xml]: Bean instantiation via constructor failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Constructor threw exception; nested exception is com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: ORA-01017: invalid username/password; logon denied
+
+2022-11-04 10:16:30.763 [ERROR] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:313)] -- Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in ServletContext resource [/WEB-INF/spring/root-context.xml]: Bean instantiation via constructor failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Constructor threw exception; nested exception is com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: ORA-01017: invalid username/password; logon denied
+
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:314) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:295) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1361) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1208) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:556) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879) ~[spring-context-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551) ~[spring-context-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:401) ~[spring-web-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:292) [spring-web-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:103) [spring-web-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4769) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5231) [catalina.jar:9.0.68]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1396) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1386) [catalina.jar:9.0.68]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_331]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) [tomcat-util.jar:9.0.68]
+	at java.util.concurrent.AbstractExecutorService.submit(Unknown Source) [?:1.8.0_331]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:919) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:835) [catalina.jar:9.0.68]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1396) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1386) [catalina.jar:9.0.68]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_331]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) [tomcat-util.jar:9.0.68]
+	at java.util.concurrent.AbstractExecutorService.submit(Unknown Source) [?:1.8.0_331]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:919) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:265) [catalina.jar:9.0.68]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:432) [catalina.jar:9.0.68]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:930) [catalina.jar:9.0.68]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [catalina.jar:9.0.68]
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:772) [catalina.jar:9.0.68]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_331]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_331]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_331]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_331]
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345) [bootstrap.jar:9.0.68]
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:476) [bootstrap.jar:9.0.68]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Constructor threw exception; nested exception is com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: ORA-01017: invalid username/password; logon denied
+
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:220) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:117) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:310) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	... 45 more
+Caused by: com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: ORA-01017: invalid username/password; logon denied
+
+	at com.zaxxer.hikari.pool.HikariPool.throwPoolInitializationException(HikariPool.java:596) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:582) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81) ~[HikariCP-4.0.3.jar:?]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_331]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source) ~[?:1.8.0_331]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source) ~[?:1.8.0_331]
+	at java.lang.reflect.Constructor.newInstance(Unknown Source) ~[?:1.8.0_331]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:207) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:117) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:310) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	... 45 more
+Caused by: java.sql.SQLException: ORA-01017: invalid username/password; logon denied
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:494) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:441) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:436) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIfun.processError(T4CTTIfun.java:1061) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIoauthenticate.processError(T4CTTIoauthenticate.java:550) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:623) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:252) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:499) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:1279) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:663) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.PhysicalConnection.connect(PhysicalConnection.java:688) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:39) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:691) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at net.sf.log4jdbc.sql.jdbcapi.DriverSpy.connect(DriverSpy.java:399) ~[log4jdbc-log4j2-jdbc4-1.16.jar:?]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81) ~[HikariCP-4.0.3.jar:?]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_331]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source) ~[?:1.8.0_331]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source) ~[?:1.8.0_331]
+	at java.lang.reflect.Constructor.newInstance(Unknown Source) ~[?:1.8.0_331]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:207) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:117) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:310) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	... 45 more
+2022-11-04 10:20:04.311 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:271)] -- Root WebApplicationContext: initialization started
+2022-11-04 10:20:05.039 [INFO ] [com.zaxxer.hikari.HikariDataSource] [main] [com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:80)] -- HikariPool-1 - Starting...
+2022-11-04 10:20:06.483 [ERROR] [com.zaxxer.hikari.pool.HikariPool] [main] [com.zaxxer.hikari.pool.HikariPool.throwPoolInitializationException(HikariPool.java:594)] -- HikariPool-1 - Exception during pool initialization.
+java.sql.SQLException: ORA-01017: invalid username/password; logon denied
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:494) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:441) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:436) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIfun.processError(T4CTTIfun.java:1061) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIoauthenticate.processError(T4CTTIoauthenticate.java:550) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:623) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:252) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:499) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:1279) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:663) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.PhysicalConnection.connect(PhysicalConnection.java:688) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:39) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:691) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at net.sf.log4jdbc.sql.jdbcapi.DriverSpy.connect(DriverSpy.java:399) ~[log4jdbc-log4j2-jdbc4-1.16.jar:?]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81) ~[HikariCP-4.0.3.jar:?]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_331]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source) ~[?:1.8.0_331]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source) ~[?:1.8.0_331]
+	at java.lang.reflect.Constructor.newInstance(Unknown Source) ~[?:1.8.0_331]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:207) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:117) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:310) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:295) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1361) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1208) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:556) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) [spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) [spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) [spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897) [spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879) [spring-context-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551) [spring-context-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:401) [spring-web-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:292) [spring-web-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:103) [spring-web-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4769) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5231) [catalina.jar:9.0.68]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1396) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1386) [catalina.jar:9.0.68]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_331]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) [tomcat-util.jar:9.0.68]
+	at java.util.concurrent.AbstractExecutorService.submit(Unknown Source) [?:1.8.0_331]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:919) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:835) [catalina.jar:9.0.68]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1396) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1386) [catalina.jar:9.0.68]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_331]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) [tomcat-util.jar:9.0.68]
+	at java.util.concurrent.AbstractExecutorService.submit(Unknown Source) [?:1.8.0_331]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:919) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:265) [catalina.jar:9.0.68]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:432) [catalina.jar:9.0.68]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:930) [catalina.jar:9.0.68]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [catalina.jar:9.0.68]
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:772) [catalina.jar:9.0.68]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_331]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_331]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_331]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_331]
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345) [bootstrap.jar:9.0.68]
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:476) [bootstrap.jar:9.0.68]
+2022-11-04 10:20:06.517 [WARN ] [org.springframework.context.support.AbstractApplicationContext] [main] [org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:559)] -- Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in ServletContext resource [/WEB-INF/spring/root-context.xml]: Bean instantiation via constructor failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Constructor threw exception; nested exception is com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: ORA-01017: invalid username/password; logon denied
+
+2022-11-04 10:20:06.531 [ERROR] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:313)] -- Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in ServletContext resource [/WEB-INF/spring/root-context.xml]: Bean instantiation via constructor failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Constructor threw exception; nested exception is com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: ORA-01017: invalid username/password; logon denied
+
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:314) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:295) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1361) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1208) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:556) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879) ~[spring-context-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551) ~[spring-context-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:401) ~[spring-web-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:292) [spring-web-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:103) [spring-web-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4769) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5231) [catalina.jar:9.0.68]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1396) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1386) [catalina.jar:9.0.68]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_331]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) [tomcat-util.jar:9.0.68]
+	at java.util.concurrent.AbstractExecutorService.submit(Unknown Source) [?:1.8.0_331]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:919) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:835) [catalina.jar:9.0.68]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1396) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1386) [catalina.jar:9.0.68]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_331]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) [tomcat-util.jar:9.0.68]
+	at java.util.concurrent.AbstractExecutorService.submit(Unknown Source) [?:1.8.0_331]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:919) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:265) [catalina.jar:9.0.68]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:432) [catalina.jar:9.0.68]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:930) [catalina.jar:9.0.68]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [catalina.jar:9.0.68]
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:772) [catalina.jar:9.0.68]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_331]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_331]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_331]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_331]
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345) [bootstrap.jar:9.0.68]
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:476) [bootstrap.jar:9.0.68]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Constructor threw exception; nested exception is com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: ORA-01017: invalid username/password; logon denied
+
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:220) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:117) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:310) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	... 45 more
+Caused by: com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: ORA-01017: invalid username/password; logon denied
+
+	at com.zaxxer.hikari.pool.HikariPool.throwPoolInitializationException(HikariPool.java:596) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:582) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81) ~[HikariCP-4.0.3.jar:?]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_331]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source) ~[?:1.8.0_331]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source) ~[?:1.8.0_331]
+	at java.lang.reflect.Constructor.newInstance(Unknown Source) ~[?:1.8.0_331]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:207) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:117) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:310) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	... 45 more
+Caused by: java.sql.SQLException: ORA-01017: invalid username/password; logon denied
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:494) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:441) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:436) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIfun.processError(T4CTTIfun.java:1061) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIoauthenticate.processError(T4CTTIoauthenticate.java:550) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:623) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:252) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:499) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:1279) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:663) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.PhysicalConnection.connect(PhysicalConnection.java:688) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:39) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:691) ~[ojdbc8-12.2.0.1.jar:12.2.0.1.0]
+	at net.sf.log4jdbc.sql.jdbcapi.DriverSpy.connect(DriverSpy.java:399) ~[log4jdbc-log4j2-jdbc4-1.16.jar:?]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81) ~[HikariCP-4.0.3.jar:?]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_331]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source) ~[?:1.8.0_331]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source) ~[?:1.8.0_331]
+	at java.lang.reflect.Constructor.newInstance(Unknown Source) ~[?:1.8.0_331]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:207) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:117) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:310) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	... 45 more
+2022-11-04 10:21:49.327 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:271)] -- Root WebApplicationContext: initialization started
+2022-11-04 10:21:50.076 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)] -- Root WebApplicationContext initialized in 740 ms
+2022-11-04 10:21:50.121 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)] -- Initializing Servlet 'appServlet'
+2022-11-04 10:21:51.372 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547)] -- Completed initialization in 1250 ms
+2022-11-04 10:23:58.687 [INFO ] [com.javateam.dummyProject.service.ProductService] [http-nio-8282-exec-5] [com.javateam.dummyProject.service.ProductService.crawlProducts(ProductService.java:221)] -- 직렬화 시작
+2022-11-04 10:23:58.689 [ERROR] [com.javateam.dummyProject.service.ProductService] [http-nio-8282-exec-5] [com.javateam.dummyProject.service.ProductService.crawlProducts(ProductService.java:234)] -- 직렬화 저장 에러 : java.io.FileNotFoundException: C:\Users\TJ\Desktop\Spring\eGovFrameDev-3.9.0-64bit\eclipse\src\main\resources\ser\ProductListDummy.ser (지정된 경로를 찾을 수 없습니다)
+2022-11-04 10:23:58.692 [INFO ] [com.javateam.dummyProject.service.ProductService] [http-nio-8282-exec-5] [com.javateam.dummyProject.service.ProductService.crawlProducts(ProductService.java:238)] -- 직렬화 종료
+2022-11-04 10:25:43.953 [INFO ] [org.springframework.web.context.ContextLoader] [Catalina-utility-2] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:271)] -- Root WebApplicationContext: initialization started
+2022-11-04 10:25:44.635 [INFO ] [org.springframework.web.context.ContextLoader] [Catalina-utility-2] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)] -- Root WebApplicationContext initialized in 671 ms
+2022-11-04 10:25:44.674 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [Catalina-utility-2] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)] -- Initializing Servlet 'appServlet'
+2022-11-04 10:25:46.137 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [Catalina-utility-2] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547)] -- Completed initialization in 1462 ms
+2022-11-04 10:25:56.027 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:271)] -- Root WebApplicationContext: initialization started
+2022-11-04 10:25:56.800 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)] -- Root WebApplicationContext initialized in 763 ms
+2022-11-04 10:25:56.852 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)] -- Initializing Servlet 'appServlet'
+2022-11-04 10:25:58.123 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547)] -- Completed initialization in 1271 ms
+2022-11-04 10:26:38.249 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:271)] -- Root WebApplicationContext: initialization started
+2022-11-04 10:26:38.986 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)] -- Root WebApplicationContext initialized in 727 ms
+2022-11-04 10:26:39.029 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)] -- Initializing Servlet 'appServlet'
+2022-11-04 10:26:40.269 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547)] -- Completed initialization in 1239 ms
+2022-11-04 10:29:45.806 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:271)] -- Root WebApplicationContext: initialization started
+2022-11-04 10:29:46.584 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)] -- Root WebApplicationContext initialized in 769 ms
+2022-11-04 10:29:46.633 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)] -- Initializing Servlet 'appServlet'
+2022-11-04 10:29:47.889 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547)] -- Completed initialization in 1256 ms
+2022-11-04 10:29:48.596 [ERROR] [com.javateam.dummyProject.service.ProductService] [http-nio-8282-exec-3] [com.javateam.dummyProject.service.ProductService.getProductListFromSerFile(ProductService.java:258)] -- 직렬화 파일 로딩 오류 : java.lang.ClassNotFoundException: com.javateam.dummyRJA.domain.ProductVO
+2022-11-04 10:32:27.650 [INFO ] [org.springframework.web.context.ContextLoader] [Catalina-utility-2] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:271)] -- Root WebApplicationContext: initialization started
+2022-11-04 10:32:28.686 [INFO ] [org.springframework.web.context.ContextLoader] [Catalina-utility-2] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)] -- Root WebApplicationContext initialized in 1026 ms
+2022-11-04 10:32:28.735 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [Catalina-utility-2] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)] -- Initializing Servlet 'appServlet'
+2022-11-04 10:32:28.882 [ERROR] [org.springframework.web.servlet.FrameworkServlet] [Catalina-utility-2] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:534)] -- Context initialization failed
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to read candidate component class: file [C:\joeunmall-teamproject-sub\workspace_project_sub\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\joeunmall-Dummy\WEB-INF\classes\com\javateam\dummyProject\controller\HomeController.class]; nested exception is java.nio.channels.ClosedByInterruptException
+	at org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.scanCandidateComponents(ClassPathScanningCandidateComponentProvider.java:457) ~[spring-context-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.findCandidateComponents(ClassPathScanningCandidateComponentProvider.java:316) ~[spring-context-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:276) ~[spring-context-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.context.annotation.ComponentScanBeanDefinitionParser.parse(ComponentScanBeanDefinitionParser.java:90) ~[spring-context-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.xml.NamespaceHandlerSupport.parse(NamespaceHandlerSupport.java:74) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.xml.BeanDefinitionParserDelegate.parseCustomElement(BeanDefinitionParserDelegate.java:1391) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.xml.BeanDefinitionParserDelegate.parseCustomElement(BeanDefinitionParserDelegate.java:1371) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.parseBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:179) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.doRegisterBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:149) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.registerBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:96) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.registerBeanDefinitions(XmlBeanDefinitionReader.java:511) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.doLoadBeanDefinitions(XmlBeanDefinitionReader.java:391) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:338) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:310) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:188) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:224) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:195) ~[spring-beans-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.context.support.XmlWebApplicationContext.loadBeanDefinitions(XmlWebApplicationContext.java:125) ~[spring-web-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.context.support.XmlWebApplicationContext.loadBeanDefinitions(XmlWebApplicationContext.java:94) ~[spring-web-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.context.support.AbstractRefreshableApplicationContext.refreshBeanFactory(AbstractRefreshableApplicationContext.java:130) ~[spring-context-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.obtainFreshBeanFactory(AbstractApplicationContext.java:638) ~[spring-context-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:523) ~[spring-context-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:702) ~[spring-webmvc-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:668) ~[spring-webmvc-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:716) ~[spring-webmvc-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:591) ~[spring-webmvc-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:530) [spring-webmvc-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:170) [spring-webmvc-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at javax.servlet.GenericServlet.init(GenericServlet.java:158) [servlet-api.jar:4.0.FR]
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1164) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardWrapper.loadServlet(StandardWrapper.java:1117) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:1010) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardContext.loadOnStartup(StandardContext.java:4958) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5265) [catalina.jar:9.0.68]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardContext.reload(StandardContext.java:3819) [catalina.jar:9.0.68]
+	at org.apache.catalina.loader.WebappLoader.backgroundProcess(WebappLoader.java:311) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.StandardContext.backgroundProcess(StandardContext.java:5614) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1365) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1369) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1369) [catalina.jar:9.0.68]
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1347) [catalina.jar:9.0.68]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) [?:1.8.0_331]
+	at java.util.concurrent.FutureTask.runAndReset(Unknown Source) [?:1.8.0_331]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(Unknown Source) [?:1.8.0_331]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source) [?:1.8.0_331]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [?:1.8.0_331]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_331]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-util.jar:9.0.68]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_331]
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.nio.channels.spi.AbstractInterruptibleChannel.end(Unknown Source) ~[?:1.8.0_331]
+	at sun.nio.ch.FileChannelImpl.read(Unknown Source) ~[?:1.8.0_331]
+	at sun.nio.ch.ChannelInputStream.read(Unknown Source) ~[?:1.8.0_331]
+	at sun.nio.ch.ChannelInputStream.read(Unknown Source) ~[?:1.8.0_331]
+	at sun.nio.ch.ChannelInputStream.read(Unknown Source) ~[?:1.8.0_331]
+	at org.springframework.asm.ClassReader.readStream(ClassReader.java:316) ~[spring-core-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.asm.ClassReader.<init>(ClassReader.java:284) ~[spring-core-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.core.type.classreading.SimpleMetadataReader.getClassReader(SimpleMetadataReader.java:57) ~[spring-core-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.core.type.classreading.SimpleMetadataReader.<init>(SimpleMetadataReader.java:49) ~[spring-core-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.core.type.classreading.SimpleMetadataReaderFactory.getMetadataReader(SimpleMetadataReaderFactory.java:103) ~[spring-core-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.core.type.classreading.CachingMetadataReaderFactory.getMetadataReader(CachingMetadataReaderFactory.java:123) ~[spring-core-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	at org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.scanCandidateComponents(ClassPathScanningCandidateComponentProvider.java:429) ~[spring-context-5.2.22.RELEASE.jar:5.2.22.RELEASE]
+	... 49 more
+2022-11-04 10:32:39.176 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:271)] -- Root WebApplicationContext: initialization started
+2022-11-04 10:32:39.915 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)] -- Root WebApplicationContext initialized in 729 ms
+2022-11-04 10:32:39.963 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)] -- Initializing Servlet 'appServlet'
+2022-11-04 10:32:41.191 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547)] -- Completed initialization in 1228 ms
+2022-11-04 10:34:50.583 [INFO ] [com.javateam.dummyProject.service.ProductService] [http-nio-8282-exec-3] [com.javateam.dummyProject.service.ProductService.crawlProducts(ProductService.java:221)] -- 직렬화 시작
+2022-11-04 10:34:50.588 [ERROR] [com.javateam.dummyProject.service.ProductService] [http-nio-8282-exec-3] [com.javateam.dummyProject.service.ProductService.crawlProducts(ProductService.java:234)] -- 직렬화 저장 에러 : java.io.FileNotFoundException: C:\Users\TJ\Desktop\Spring\eGovFrameDev-3.9.0-64bit\eclipse\src\main\resources\ser\ProductListDummy.ser (지정된 경로를 찾을 수 없습니다)
+2022-11-04 10:34:50.591 [INFO ] [com.javateam.dummyProject.service.ProductService] [http-nio-8282-exec-3] [com.javateam.dummyProject.service.ProductService.crawlProducts(ProductService.java:238)] -- 직렬화 종료
+2022-11-04 10:34:50.621 [ERROR] [com.javateam.dummyProject.service.ProductService] [http-nio-8282-exec-3] [com.javateam.dummyProject.service.ProductService.getProductListFromSerFile(ProductService.java:258)] -- 직렬화 파일 로딩 오류 : java.lang.ClassNotFoundException: com.javateam.dummyRJA.domain.ProductVO
+2022-11-04 10:39:21.376 [INFO ] [org.springframework.web.context.ContextLoader] [Catalina-utility-2] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:271)] -- Root WebApplicationContext: initialization started
+2022-11-04 10:39:22.188 [INFO ] [org.springframework.web.context.ContextLoader] [Catalina-utility-2] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)] -- Root WebApplicationContext initialized in 801 ms
+2022-11-04 10:39:22.236 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [Catalina-utility-2] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)] -- Initializing Servlet 'appServlet'
+2022-11-04 10:39:23.574 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [Catalina-utility-2] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547)] -- Completed initialization in 1338 ms
+2022-11-04 10:39:33.466 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:271)] -- Root WebApplicationContext: initialization started
+2022-11-04 10:39:34.207 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)] -- Root WebApplicationContext initialized in 732 ms
+2022-11-04 10:39:34.258 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)] -- Initializing Servlet 'appServlet'
+2022-11-04 10:39:35.483 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547)] -- Completed initialization in 1225 ms
+2022-11-04 10:39:36.222 [ERROR] [com.javateam.dummyProject.service.ProductService] [http-nio-8282-exec-3] [com.javateam.dummyProject.service.ProductService.getProductListFromSerFile(ProductService.java:258)] -- 직렬화 파일 로딩 오류 : java.lang.ClassNotFoundException: com.javateam.dummyRJA.domain.ProductVO
+2022-11-04 10:49:29.353 [INFO ] [org.springframework.web.context.ContextLoader] [Catalina-utility-1] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:271)] -- Root WebApplicationContext: initialization started
+2022-11-04 10:49:30.093 [INFO ] [org.springframework.web.context.ContextLoader] [Catalina-utility-1] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)] -- Root WebApplicationContext initialized in 729 ms
+2022-11-04 10:49:30.151 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [Catalina-utility-1] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)] -- Initializing Servlet 'appServlet'
+2022-11-04 10:49:31.387 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [Catalina-utility-1] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547)] -- Completed initialization in 1236 ms
+2022-11-04 10:52:22.343 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:271)] -- Root WebApplicationContext: initialization started
+2022-11-04 10:52:23.117 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)] -- Root WebApplicationContext initialized in 765 ms
+2022-11-04 10:52:23.185 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)] -- Initializing Servlet 'appServlet'
+2022-11-04 10:52:24.404 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547)] -- Completed initialization in 1219 ms
+2022-11-04 10:57:41.356 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:271)] -- Root WebApplicationContext: initialization started
+2022-11-04 10:57:42.083 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)] -- Root WebApplicationContext initialized in 716 ms
+2022-11-04 10:57:42.139 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)] -- Initializing Servlet 'appServlet'
+2022-11-04 10:57:43.375 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547)] -- Completed initialization in 1236 ms
+2022-11-04 10:59:41.754 [INFO ] [com.javateam.dummyProject.service.ProductService] [http-nio-8282-exec-2] [com.javateam.dummyProject.service.ProductService.crawlProducts(ProductService.java:221)] -- 직렬화 시작
+2022-11-04 10:59:41.756 [ERROR] [com.javateam.dummyProject.service.ProductService] [http-nio-8282-exec-2] [com.javateam.dummyProject.service.ProductService.crawlProducts(ProductService.java:234)] -- 직렬화 저장 에러 : java.io.FileNotFoundException: C:\Users\TJ\Desktop\Spring\eGovFrameDev-3.9.0-64bit\eclipse\src\main\resources\ser\ProductListDummy.ser (지정된 경로를 찾을 수 없습니다)
+2022-11-04 10:59:41.759 [INFO ] [com.javateam.dummyProject.service.ProductService] [http-nio-8282-exec-2] [com.javateam.dummyProject.service.ProductService.crawlProducts(ProductService.java:238)] -- 직렬화 종료
+2022-11-04 11:08:18.764 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:271)] -- Root WebApplicationContext: initialization started
+2022-11-04 11:08:19.492 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)] -- Root WebApplicationContext initialized in 719 ms
+2022-11-04 11:08:19.550 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)] -- Initializing Servlet 'appServlet'
+2022-11-04 11:08:20.792 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547)] -- Completed initialization in 1242 ms
+2022-11-04 11:10:19.985 [INFO ] [com.javateam.dummyProject.service.ProductService] [http-nio-8282-exec-3] [com.javateam.dummyProject.service.ProductService.crawlProducts(ProductService.java:226)] -- 직렬화 시작
+2022-11-04 11:10:19.991 [INFO ] [com.javateam.dummyProject.service.ProductService] [http-nio-8282-exec-3] [com.javateam.dummyProject.service.ProductService.crawlProducts(ProductService.java:243)] -- 직렬화 종료
+2022-11-04 11:11:37.302 [INFO ] [org.springframework.web.context.ContextLoader] [Catalina-utility-1] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:271)] -- Root WebApplicationContext: initialization started
+2022-11-04 11:11:38.137 [INFO ] [org.springframework.web.context.ContextLoader] [Catalina-utility-1] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)] -- Root WebApplicationContext initialized in 824 ms
+2022-11-04 11:11:38.191 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [Catalina-utility-1] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)] -- Initializing Servlet 'appServlet'
+2022-11-04 11:11:39.352 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [Catalina-utility-1] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547)] -- Completed initialization in 1161 ms
+2022-11-04 11:12:16.635 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:271)] -- Root WebApplicationContext: initialization started
+2022-11-04 11:12:17.362 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)] -- Root WebApplicationContext initialized in 719 ms
+2022-11-04 11:12:17.417 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)] -- Initializing Servlet 'appServlet'
+2022-11-04 11:12:18.633 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547)] -- Completed initialization in 1216 ms
+2022-11-04 11:14:47.058 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:271)] -- Root WebApplicationContext: initialization started
+2022-11-04 11:14:47.799 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)] -- Root WebApplicationContext initialized in 729 ms
+2022-11-04 11:14:47.850 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)] -- Initializing Servlet 'appServlet'
+2022-11-04 11:14:49.071 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547)] -- Completed initialization in 1221 ms
+2022-11-04 11:20:34.514 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:271)] -- Root WebApplicationContext: initialization started
+2022-11-04 11:20:35.255 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)] -- Root WebApplicationContext initialized in 734 ms
+2022-11-04 11:20:35.308 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)] -- Initializing Servlet 'appServlet'
+2022-11-04 11:20:36.549 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547)] -- Completed initialization in 1241 ms
+2022-11-04 11:23:03.695 [INFO ] [com.javateam.dummyProject.service.ProductService] [http-nio-8282-exec-3] [com.javateam.dummyProject.service.ProductService.crawlProducts(ProductService.java:227)] -- 직렬화 시작
+2022-11-04 11:23:03.721 [INFO ] [com.javateam.dummyProject.service.ProductService] [http-nio-8282-exec-3] [com.javateam.dummyProject.service.ProductService.crawlProducts(ProductService.java:244)] -- 직렬화 종료
+2022-11-04 11:42:42.494 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:271)] -- Root WebApplicationContext: initialization started
+2022-11-04 11:42:43.220 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)] -- Root WebApplicationContext initialized in 718 ms
+2022-11-04 11:42:43.291 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)] -- Initializing Servlet 'appServlet'
+2022-11-04 11:42:44.511 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547)] -- Completed initialization in 1220 ms
+2022-11-04 11:42:45.305 [INFO ] [com.javateam.dummyProject.service.UserService] [http-nio-8282-exec-3] [com.javateam.dummyProject.service.UserService.dummyData(UserService.java:286)] -- 직렬화 시작
+2022-11-04 11:42:45.312 [INFO ] [com.javateam.dummyProject.service.UserService] [http-nio-8282-exec-3] [com.javateam.dummyProject.service.UserService.dummyData(UserService.java:303)] -- 직렬화 종료
+2022-11-04 11:43:46.254 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:271)] -- Root WebApplicationContext: initialization started
+2022-11-04 11:43:47.061 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)] -- Root WebApplicationContext initialized in 794 ms
+2022-11-04 11:43:47.124 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)] -- Initializing Servlet 'appServlet'
+2022-11-04 11:43:48.380 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547)] -- Completed initialization in 1256 ms
+2022-11-04 11:46:41.787 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:271)] -- Root WebApplicationContext: initialization started
+2022-11-04 11:46:42.517 [INFO ] [org.springframework.web.context.ContextLoader] [main] [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)] -- Root WebApplicationContext initialized in 718 ms
+2022-11-04 11:46:42.590 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)] -- Initializing Servlet 'appServlet'
+2022-11-04 11:46:43.833 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [main] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547)] -- Completed initialization in 1243 ms

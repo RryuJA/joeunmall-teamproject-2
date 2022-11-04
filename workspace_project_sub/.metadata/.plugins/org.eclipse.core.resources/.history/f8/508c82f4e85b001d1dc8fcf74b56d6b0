@@ -1,0 +1,300 @@
+package com.javateam.dummyProject.service;
+
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.javateam.dummyProject.domain.UserVO;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Service
+@Slf4j
+public class UserService {
+	
+/*	
+ * public void testPrint() {
+		System.out.println("UserIndex: " + makeUserIndex());
+		System.out.println("UserID: " + makeUserId());
+		System.out.println("UserName: " + makeUserName());
+		System.out.println("UserPw: " + makeUserPw());
+		System.out.println("UserDate: " + makeUserDate());
+		System.out.println("UserEmail: " + makeUserEmail());
+		System.out.println("UserBirth: " + makeUserBirth());
+		System.out.println("UserGender: " + makeUserGender());
+		System.out.println("UserLaneline: " + makeUserLaneline());
+		System.out.println("UserMobile: " + makeUserMobile());
+		System.out.println("UserPost: " + makeUserPost());
+		System.out.println("UserAddress: " + makeUserAddress());
+		System.out.println("UserAddressDetail: " + makeUserAddressDetail());
+		
+		System.out.println();
+	}
+*/
+
+	/**
+	 * 고객번호 형식 : ﻿0000000
+	 * '﻿가입년도 4자리' (+) '해당년도 가입 순서 3자리'
+	 * userIndexCount : 가입 순서 저장
+	 * @return 고객번호
+	 */
+	private int userIndexCount = 0;
+	
+	private String makeUserIndex() {
+		String result = "2022";
+		this.userIndexCount++;
+		result += String.format("%03d", userIndexCount);
+		
+		return result;
+	}
+	
+	/**
+	 * 아이디 dummy
+	 * 고객번호+abc123 으로 더미데이터 만듦
+	 * @return 아이디
+	 */
+	private String makeUserId() {
+		String result = "2022";
+		result += String.format("%03d", userIndexCount);
+		result += "abc123";
+		
+		return result;
+	}
+	
+	/**
+	 * 이름 dummy
+	 * @return 이름
+	 */
+	private String makeUserName() {
+		String name = "";
+		
+		String first[] = {"김","이","박","최","주","임","엄","성","남궁","독고","황","황보","송","오","유","류","윤","장","정","추"};  
+        String middle[] = {"","숙","갑","영","순","선","원","우","이","운","성"};  
+    	String last[] = {"영","수","희","빈","민","정","순","주","연","영"}; 
+    	
+    	name = first[(int)Math.floor(Math.random() * first.length)];
+		name += middle[(int)Math.floor(Math.random() * middle.length)];
+		name += last[(int)Math.floor(Math.random() * last.length)];
+		
+		return name;
+	}
+	
+	/**
+	 * 비밀번호 dummy
+	 * 고객번호+1111pw 으로 더미데이터 만듦
+	 * @return 비밀번호
+	 */
+	private String makeUserPw() {
+		String result = "2022";
+		result += String.format("%03d", userIndexCount);
+		result += "1111pw";
+		
+		return result;
+	}
+	
+	/**
+	 * 가입일
+	 * @return 현재날짜
+	 */
+	private Date makeUserDate() {
+		Date date = new Date();
+		
+		return date;
+	}
+	
+	/**
+	 * 이메일 dummy
+	 * email+고객번호 로 더미데이터 만듦
+	 * @return 이메일
+	 */
+	private String makeUserEmail() {
+		String result = "email2022";
+		result += String.format("%03d", userIndexCount);
+		
+		String email[] = {"@gmail.com", "@naver.com", "@daum.net", "@kakao.com"};
+		result += email[(int)Math.floor((Math.random() * email.length))];
+		
+		return result;
+	}
+	
+	/**
+	 * 생일 dummy
+	 * 1980년부터 2010년도까지의 일자 랜덤
+	 * @return 생일
+	 */
+	private Date makeUserBirth() {
+		Date birth = new Date();
+		
+		// 1980년부터 2010년까지
+		String result = "";
+		int year = 1980 + (int)(Math.random()*30);
+		result += year + "-";
+		
+		int month = 1 + (int)(Math.random()*12);
+		result += month < 10 ? "0"+month+"-" : month+"-";
+		
+		int date = 1 + (int)(Math.random()*30);
+		result += date < 10 ? "0"+month : month+"";
+		
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		try {	// parse 함수 사용 시 ParseException 처리 필요
+			birth = format.parse(result);
+			return birth;
+		} catch(ParseException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		return null;
+	}
+	
+	/**
+	 * 성별 dummy
+	 * 남/여 두 값중 랜덤 1개
+	 * @return 성별
+	 */
+	private String makeUserGender() {
+		String gender[] = {"남", "여"};
+		String result = gender[(int)(Math.random()*2)];
+		
+		return result;
+	}
+	
+	/**
+	 * 일반전화 dummy
+	 * 지역번호는 저장된 값중 랜덤
+	 * 나머지는 3자리, 4자리로 된 값 랜덤
+	 * @return 일반전화
+	 */
+	private String makeUserLaneline() {
+		String result = "";
+		
+		String first[] = {"02", "031", "032", "033", "041", "042", "043", "044", "051", "052", "053", "054", "055", "061", "062", "063", "064"};
+		result += first[(int)(Math.random()*first.length)];
+		
+		int second = (int)(Math.random()*1000);
+		
+		int third = (int)(Math.random()*10000);
+		
+		result += "-" + String.format("%03d", second) 
+				+ "-" + String.format("%04d", third);
+		
+		return result;
+	}
+	
+	/**
+	 * 휴대전화 dummy
+	 * 010 고정
+	 * 나머지는 4자리, 4자리로 된 값 랜덤
+	 * @return 휴대전화
+	 */
+	private String makeUserMobile() {
+		String result = "010-";
+		
+		int second = (int)(Math.random()*10000);
+		int third = (int)(Math.random()*10000);
+		
+		result += String.format("%04d", second) + "-" 
+				+ String.format("%04d", third);
+		
+		return result;
+	}
+	
+	/**
+	 * 우편번호 dummy
+	 * 5자리 값 랜덤
+	 * @return 우편번호
+	 */
+	private String makeUserPost() {
+		String result = "";
+		
+		int post = (int)(Math.random()*100000);
+		
+		result = String.format("%05d", post);
+		
+		return result;
+	}
+	
+	/**
+	 * 주소 dummy
+	 * 입력된 값 중 랜덤
+	 * @return 주소
+	 */
+	private String makeUserAddress() {
+		String result = "";
+		
+		String address[] = {"서울시 관악구", "서울시 강남구", "서울시 서초구", "서울시 동작구", "서울시 구로구", "서울시 마포구"};
+		result = address[(int)(Math.random()*address.length)];
+		
+		return result;
+	}
+	
+	/**
+	 * 상세주소 dummy
+	 * 입력된 값 중 랜덤
+	 * @return 상세주소
+	 */
+	private String makeUserAddressDetail() {
+		String result = "";
+		
+		String addressDetail[] = {"현대아파트 101호", "현대아파트 301호", "현대아파트 502호", "푸르지오아파트 1303호", "푸르지오아파트 1305호", "푸르지오아파트 1103호", "래미안아파트 505호", "래미안아파트 305호", "래미안아파트 104호"};
+		result = addressDetail[(int)(Math.random()*addressDetail.length)];
+		
+		return result;
+	}
+	
+	// 더미데이터 리스트
+	public void dummyData() {
+		List<UserVO> userList = new ArrayList<>();
+		UserVO userVO;
+		
+		for(int i=0; i<50; i++) {
+			userVO = new UserVO();
+			
+			userVO.setUserIndex(makeUserIndex());
+			userVO.setUserId(makeUserId());
+			userVO.setUserName(makeUserName());
+			userVO.setUserPw(makeUserPw());
+			userVO.setUserDate(makeUserDate());
+			userVO.setUserEmail(makeUserEmail());
+			userVO.setUserBirth(makeUserBirth());
+			userVO.setUserGender(makeUserGender());
+			userVO.setUserLandline(makeUserLaneline());
+			userVO.setUserMobile(makeUserMobile());
+			userVO.setUserPost(makeUserPost());
+			userVO.setUserAddress(makeUserAddress());
+			userVO.setUserAddressDetail(makeUserAddressDetail());
+			
+			System.out.println(userVO.toString());
+			
+			userList.add(userVO);
+		}
+		
+		log.info("직렬화 시작");
+		
+		String fileLocation = new File("C:\\joeunmall-teamproject-sub\\workspace_project_sub\\joeunmall-Dummy\\src\\main\\resources\\ser").getAbsolutePath() 
+								+ "\\ProductListDummy.ser";
+		
+		try (FileOutputStream     fos = new FileOutputStream(fileLocation);
+			 BufferedOutputStream bos = new BufferedOutputStream(fos);) 
+		{
+			ObjectOutputStream out = new ObjectOutputStream(bos);
+			out.writeObject(userList);
+			
+		} catch (IOException e) {
+			
+			log.error("직렬화 저장 에러 : " + e);
+			e.printStackTrace();
+		}
+		
+		log.info("직렬화 종료");
+	}
+}
