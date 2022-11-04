@@ -14,7 +14,7 @@
 		    p:driverClass="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
 		    p:url="jdbc:log4jdbc:oracle:thin:@localhost:1521:xe"
 		    p:username="project"
-		    p:password="project"
+		    p:password="1111"
 		/> 
 
 	<!-- Addtional Trasactional Usage : @Transactional ~~ -->
@@ -27,8 +27,7 @@
 	<!-- HikariCP & log4jdbc -->
 	<!-- https://github.com/brettwooldridge/HikariCP/wiki/HikariCP-Articles -->
 	<!-- https://examples.javacodegeeks.com/enterprise-java/hikaricp/hikaricp-connection-pooling-example/ -->
-	
-	<!-- 
+
 	<bean id="dataSourceHiKariConfig"
 		class="com.zaxxer.hikari.HikariConfig">
 		<property name="driverClassName"
@@ -36,7 +35,7 @@
 		<property name="jdbcUrl"
 			value="jdbc:log4jdbc:oracle:thin:@localhost:1521:xe" />
 		<property name="username" value="project" />
-		<property name="password" value="project" />
+		<property name="password" value="1111" />
 	</bean>
 
 	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
@@ -72,7 +71,7 @@
 		<constructor-arg name="sqlSessionFactory"
 			ref="sqlSessionFactory" />
 	</bean>
-	-->
+	
 	
 	<!-- //////////////////////////////////////////////////////////////// -->
 	

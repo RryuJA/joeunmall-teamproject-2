@@ -27,6 +27,7 @@
 	<!-- HikariCP & log4jdbc -->
 	<!-- https://github.com/brettwooldridge/HikariCP/wiki/HikariCP-Articles -->
 	<!-- https://examples.javacodegeeks.com/enterprise-java/hikaricp/hikaricp-connection-pooling-example/ -->
+	
 
 	<bean id="dataSourceHiKariConfig"
 		class="com.zaxxer.hikari.HikariConfig">

@@ -27,7 +27,8 @@
 	<!-- HikariCP & log4jdbc -->
 	<!-- https://github.com/brettwooldridge/HikariCP/wiki/HikariCP-Articles -->
 	<!-- https://examples.javacodegeeks.com/enterprise-java/hikaricp/hikaricp-connection-pooling-example/ -->
-
+	
+	<!-- 
 	<bean id="dataSourceHiKariConfig"
 		class="com.zaxxer.hikari.HikariConfig">
 		<property name="driverClassName"
@@ -35,7 +36,7 @@
 		<property name="jdbcUrl"
 			value="jdbc:log4jdbc:oracle:thin:@localhost:1521:xe" />
 		<property name="username" value="project" />
-		<property name="password" value="1111" />
+		<property name="password" value="project" />
 	</bean>
 
 	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
@@ -71,7 +72,7 @@
 		<constructor-arg name="sqlSessionFactory"
 			ref="sqlSessionFactory" />
 	</bean>
-	
+	-->
 	
 	<!-- //////////////////////////////////////////////////////////////// -->
 	

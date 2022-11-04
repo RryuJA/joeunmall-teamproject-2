@@ -298,7 +298,7 @@ public class UserService {
 			
 			log.error("직렬화 저장 에러 : " + e);
 			e.printStackTrace();
-		} 
+		}
 		
 		log.info("직렬화 종료");
 	}
