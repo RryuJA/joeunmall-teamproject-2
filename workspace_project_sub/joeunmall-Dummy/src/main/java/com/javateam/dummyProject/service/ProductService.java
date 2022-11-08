@@ -9,10 +9,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.nio.file.Files;
-import java.nio.file.LinkOption;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -22,7 +18,6 @@ import java.util.List;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.springframework.stereotype.Service;
-import org.springframework.util.ResourceUtils;
 
 import com.javateam.dummyProject.domain.ProductVO;
 
@@ -215,7 +210,7 @@ public class ProductService {
 				productVO.setProductPrice(Integer.parseInt(productPrice));
 				productVO.setProductImage(makeProductImagePath(productVO.getProductIndex()));
 				productVO.setProductDate(makeProductDate());
-				productVO.setProductInfo(productVO.getProductIndex() + " " + productVO.getProductName() + "DummyInfo");			
+				productVO.setProductInfo(productVO.getProductName() + " DummyInfo");			
 				
 				System.out.println(productVO.toString());
 				

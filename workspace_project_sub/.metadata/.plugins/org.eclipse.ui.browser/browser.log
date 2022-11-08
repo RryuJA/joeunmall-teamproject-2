@@ -1,0 +1,5 @@
+
+11월 08, 2022 10:31:25.48 NEW SESSION
+11월 08, 2022 10:31:25.48 [3812:8112:1108/103125.481:ERROR:device_event_log_impl.cc(215)] [10:31:25.481] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+11월 08, 2022 10:35:57.69 [6724:11560:1108/103557.692:ERROR:device_event_log_impl.cc(215)] [10:35:57.692] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+11월 08, 2022 11:08:31.73 [6724:11560:1108/110831.730:ERROR:device_event_log_impl.cc(215)] [11:08:31.736] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: ��Ұ� �����ϴ�. (0x490)

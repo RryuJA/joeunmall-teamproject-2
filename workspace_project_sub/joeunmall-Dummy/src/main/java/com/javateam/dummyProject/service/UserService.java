@@ -17,7 +17,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.javateam.dummyProject.domain.ProductVO;
 import com.javateam.dummyProject.domain.UserVO;
 
 import lombok.extern.slf4j.Slf4j;

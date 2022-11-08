@@ -6,6 +6,8 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\joeunmall-teamproject\workspace_project\joeun_mall2"/>
+			<item value="C:\Users\TJ\Downloads\boardProject"/>
 			<item value="C:\joeunmal-teamproject-sub\workspace_project_sub\joeunmall-Dummy"/>
 		</list>
 		<list key="projectNameTemplate">

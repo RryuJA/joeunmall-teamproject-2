@@ -9,6 +9,31 @@
 </head>
 <body>
 
+	<table border="1">
+		<c:forEach items="${prOptionList}" var="prOption" varStatus="st">
+			<tr>
+				<td>${st.count}</td>
+				<td>${prOption.productOptionIndex}</td>
+				<td>${prOption.productIndex}</td>
+				<td>${prOption.productOptionValue}</td>
+			</tr>
+		</c:forEach>
+	</table>
+
+<!-- 상품이미지데이터
+	<table>
+		<c:forEach items="${prImageList}" var="prImage" varStatus="st">
+			<tr>
+				<td>${st.count}</td>
+				<td>${prImage.productImageIndex}</td>
+				<td>${prImage.productIndex}</td>
+				<td>${prImage.productDetailImage}</td>
+			</tr>
+		</c:forEach>
+	</table>
+-->
+
+<!-- 고객데이터
 	<table>
 		<c:forEach items="${userList}" var="user" varStatus="st">
 			<tr>
@@ -29,7 +54,9 @@
 			</tr>
 		</c:forEach>
 	</table>
+-->
 
+<!-- 상품데이터
 	<table>
 		<c:forEach items="${prList}" var="product" varStatus="st">
 			<tr>
@@ -45,6 +72,7 @@
 			</tr>
 		</c:forEach>
 	</table>
+-->
 	
 </body>
 </html>

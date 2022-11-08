@@ -1,0 +1,177 @@
+package com.javateam.dummyProject.service;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FilenameFilter;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.javateam.dummyProject.domain.ProductImageVO;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Service
+@Slf4j
+public class ProductImageService {
+	
+/*	
+ * public void testPrint() {
+		System.out.println("UserAddressDetail: " + makeUserAddressDetail());
+		
+		System.out.println();
+	}
+*/
+
+	//상품번호 임시저장
+	private String productIndex = "22_01_001";
+	
+	//상품이미지번호 카운트
+	private int productImageCount = 1;
+	
+	//카테고리 번호
+	private String category[] = {"01", "02", "03", "04", "05"};
+		
+	//categoryCount : 각 카테고리별 상품 수
+	private int categoryCount[] = {0, 0, 0, 0, 0};
+	
+	//현재 카테고리
+	private int categoryNum = 0;
+	
+	// 이미지 경로
+	private String imagePath[] = {"01_tshirt", "02_pants", "03_onepiece", "04_cardigan", "05_jacket"};
+		
+	private boolean fileCheck() {
+		String path = "C:/joeunmall-teamproject/product_images/";
+		path += imagePath[categoryNum] + "/" + productIndex + "_" + productImageCount;
+		
+		File filePath = new File(path);
+		
+		return filePath.exists();
+	}
+	
+	/**
+	 * 상품이미지번호 형식 : ﻿00_00_000_0
+	 * '상품번호'_'상품 이미지 등록 순서 1자리'  (상품 이미지는 1~5까지만 가능)
+	 * @return 상품이미지번호
+	 */	
+	private String makeProductImageIndex() {
+		
+		String result = productIndex;
+		result += String.format("%d", productImageCount);
+		
+		if(productImageCount == 5) {
+			productImageCount = 1;
+		}
+			
+		return result;
+	}
+	
+	/**
+	 * 상품번호 형식 : ﻿00_00_000
+	 * '상품등록연도 2자리'_'상품 카테고리 번호 2자리'_'상품 등록 순서 3자리'
+	 * @return 상품번호
+	 */
+	private String makeProductIndex() {
+		// 파일이 있으면 이전 상품번호 그대로 리턴
+		if(fileCheck()) {	
+			return productIndex;
+		} else {
+			String result = "22_";
+			
+			categoryNum = categoryCount[categoryNum] >= 50 ? ++categoryNum : categoryNum;
+			
+			categoryCount[categoryNum] += 1;
+			
+			result += category[categoryNum];
+			result += "_";
+			result += String.format("%03d", categoryCount[categoryNum]);
+			
+			return result;
+		}
+	}
+	
+	
+	// 더미데이터 리스트
+	public void dummyData() {
+		List<UserVO> userList = new ArrayList<>();
+		UserVO userVO;
+		
+		for(int i=0; i<50; i++) {
+			userVO = new UserVO();
+			
+			userVO.setUserIndex(makeUserIndex());
+			userVO.setUserId(makeUserId());
+			userVO.setUserName(makeUserName());
+			userVO.setUserPw(makeUserPw());
+			userVO.setUserDate(makeUserDate());
+			userVO.setUserEmail(makeUserEmail());
+			userVO.setUserBirth(makeUserBirth());
+			userVO.setUserGender(makeUserGender());
+			userVO.setUserLandline(makeUserLaneline());
+			userVO.setUserMobile(makeUserMobile());
+			userVO.setUserPost(makeUserPost());
+			userVO.setUserAddress(makeUserAddress());
+			userVO.setUserAddressDetail(makeUserAddressDetail());
+			
+			System.out.println(userVO.toString());
+			
+			userList.add(userVO);
+		}
+		
+		log.info("직렬화 시작");
+		
+		String fileLocation = new File("C:\\joeunmall-teamproject2\\workspace_project_sub\\joeunmall-Dummy\\src\\main\\resources\\ser").getAbsolutePath() 
+								+ "\\UserListDummy.ser";
+		
+		try (FileOutputStream     fos = new FileOutputStream(fileLocation);
+			 BufferedOutputStream bos = new BufferedOutputStream(fos);) 
+		{
+			ObjectOutputStream out = new ObjectOutputStream(bos);
+			out.writeObject(userList);
+			
+		} catch (IOException e) {
+			
+			log.error("직렬화 저장 에러 : " + e);
+			e.printStackTrace();
+		} 
+		
+		log.info("직렬화 종료");
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<UserVO> getUserListFromSerFile(String filePath) throws FileNotFoundException {
+		
+		File file = new File(filePath);
+		List<UserVO> userList = null;
+		
+		try (FileInputStream     fis = new FileInputStream(file);
+			 BufferedInputStream bis = new BufferedInputStream(fis);) {
+		
+			ObjectInputStream in = new ObjectInputStream(bis);
+			
+			userList = (List<UserVO>)in.readObject();
+			
+		} catch (IOException e) {
+			log.error("역직렬화 에러 : " + e);
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			log.error("직렬화 파일 로딩 오류 : " + e);
+			e.printStackTrace();
+		}
+		
+		return userList;
+	} 
+	
+}
