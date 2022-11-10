@@ -104,7 +104,7 @@ public class ProductOptionService {
 		String size[] = {"2XS", "XS", "S", "M", "L", "XL", "2XL", "3XL"};
 		
 		result = color[(int)Math.floor(Math.random() * color.length)];
-		result += ", ";
+		result += " ";
 		result += size[(int)Math.floor(Math.random() * size.length)];
 		
 		return result;

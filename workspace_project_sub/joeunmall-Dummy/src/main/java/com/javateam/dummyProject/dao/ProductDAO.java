@@ -1,7 +1,5 @@
 package com.javateam.dummyProject.dao;
 
-import java.sql.SQLException;
-
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;

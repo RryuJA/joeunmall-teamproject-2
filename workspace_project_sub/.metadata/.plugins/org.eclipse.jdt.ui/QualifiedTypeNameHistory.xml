@@ -18,4 +18,8 @@
 <fullyQualifiedTypeName name="com.javateam.dummyProject.service.InquiryService"/>
 <fullyQualifiedTypeName name="com.javateam.dummyProject.dao.ProductDAO"/>
 <fullyQualifiedTypeName name="com.javateam.dummyProject.domain.ProductVO"/>
+<fullyQualifiedTypeName name="com.javateam.dummyProject.dao.ProductImageDAO"/>
+<fullyQualifiedTypeName name="com.javateam.dummyProject.dao.ProductOptionDAO"/>
+<fullyQualifiedTypeName name="com.javateam.dummyProject.domain.ProductImageVO"/>
+<fullyQualifiedTypeName name="com.javateam.dummyProject.domain.ProductOptionVO"/>
 </qualifiedTypeNameHistroy>
