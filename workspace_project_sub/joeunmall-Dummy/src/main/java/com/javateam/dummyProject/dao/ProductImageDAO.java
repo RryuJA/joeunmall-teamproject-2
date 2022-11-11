@@ -10,6 +10,10 @@ import com.javateam.dummyProject.domain.ProductImageVO;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * @author RJA
+ */
+
 @Repository
 @Slf4j
 public class ProductImageDAO {

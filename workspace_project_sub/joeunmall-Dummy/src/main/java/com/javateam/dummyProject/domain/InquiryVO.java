@@ -4,7 +4,9 @@ import java.io.Serializable;
 import java.util.Date;
 
 /** 
- * 1:1문의 VO(값 객체) 
+ * 1:1문의 VO
+ * 
+ * @author RJA
  */
 public class InquiryVO implements Serializable {
 	

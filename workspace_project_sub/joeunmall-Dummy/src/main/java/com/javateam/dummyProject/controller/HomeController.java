@@ -9,16 +9,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.javateam.dummyProject.service.UserService;
+import com.javateam.dummyProject.dao.OrderProductDAO;
 import com.javateam.dummyProject.dao.ProductDAO;
 import com.javateam.dummyProject.dao.ProductImageDAO;
 import com.javateam.dummyProject.dao.ProductOptionDAO;
 import com.javateam.dummyProject.dao.UserDAO;
+import com.javateam.dummyProject.domain.OrderProductVO;
 import com.javateam.dummyProject.domain.ProductImageVO;
 import com.javateam.dummyProject.domain.ProductOptionVO;
 import com.javateam.dummyProject.domain.ProductVO;
 import com.javateam.dummyProject.domain.UserVO;
 import com.javateam.dummyProject.service.InquiryService;
-import com.javateam.dummyProject.service.OrderService;
+import com.javateam.dummyProject.service.OrderProductService;
 import com.javateam.dummyProject.service.ProductImageService;
 import com.javateam.dummyProject.service.ProductOptionService;
 import com.javateam.dummyProject.service.ProductService;
@@ -33,27 +35,32 @@ public class HomeController {
 	private ProductService productSvc;
 	private ProductImageService productImageSvc;
 	private ProductOptionService productOptionSvc;
+	private OrderProductService orderProductSvc;
 	private InquiryService inquirySvc;
 
 	private UserDAO userDAO;
 	private ProductDAO productDAO;
 	private ProductImageDAO productImageDAO;
 	private ProductOptionDAO productOptionDAO;
+	private OrderProductDAO orderProductDAO;
 	
 	@Autowired
 	public HomeController(UserService userSvc, ProductService productSvc, ProductImageService productImageSvc, 
-						  ProductOptionService productOptionSvc, UserDAO userDAO, ProductDAO productDAO, 
-						  ProductImageDAO productImageDAO, ProductOptionDAO productOptionDAO) {
+						  ProductOptionService productOptionSvc, OrderProductService orderProductSvc, InquiryService inquirySvc, 
+						  UserDAO userDAO, ProductDAO productDAO, ProductImageDAO productImageDAO, 
+						  ProductOptionDAO productOptionDAO, OrderProductDAO orderProductDAO) {
 		this.userSvc = userSvc;
 		this.productSvc = productSvc;
 		this.productImageSvc = productImageSvc;
 		this.productOptionSvc = productOptionSvc;
+		this.orderProductSvc = orderProductSvc;
 		this.inquirySvc = inquirySvc;
 		
 		this.userDAO = userDAO;
 		this.productDAO = productDAO;
 		this.productImageDAO = productImageDAO;
 		this.productOptionDAO = productOptionDAO;
+		this.orderProductDAO = orderProductDAO;
 	}
 	
 	
@@ -63,6 +70,7 @@ public class HomeController {
 		//log.info("home");
 		
 		
+		
 		//--------------------------------------------------------------------------------------------------
 		
 		// 직렬화 (실행X)
@@ -70,7 +78,11 @@ public class HomeController {
 		//productSvc.crawlProducts();
 		//productImageSvc.dummyData();
 		//productOptionSvc.dummyData();
-		//inquirySvc.dummyData();
+		
+		// OrderProductService 에는 DB에 저장되어있는 데이터가 필요함
+		/*orderProductSvc.setUserDummy(userDAO.selectUserTBLRandom());
+		orderProductSvc.setProductDummy(productDAO.selectProductTBLRandom());
+		orderProductSvc.dummyData();*/
 		
 		//--------------------------------------------------------------------------------------------------
 		
@@ -113,7 +125,17 @@ public class HomeController {
 			productOptionDAO.insertProductOptionTBL(productOptionList.get(i));
 		}*/
 		
+		// OrderProductDAO
+		// C:\\joeunmall-teamproject2\\workspace_project_sub\\joeunmall-Dummy\\src\\main\\resources\\ser\\OrderProductListDummy.ser
+		/*List<OrderProductVO> orderProductList = orderProductSvc.getOrderProductListFromSerFile("C:\\joeunmall-teamproject2\\workspace_project_sub\\joeunmall-Dummy\\src\\main\\resources\\ser\\OrderProductListDummy.ser"); 
+		for(int i=0; i<orderProductList.size(); i++) {
+			orderProductDAO.insertOrderProductTBL(orderProductList.get(i));
+		}*/
+		
 		//--------------------------------------------------------------------------------------------------
+		
+		// UserTBL에 저장된 데이터 1개 랜덤 추출 (테스트 출력)
+		//model.addAttribute("userList", userDAO.selectUserTBLRandom());
 		
 		return "home"; 
 	}

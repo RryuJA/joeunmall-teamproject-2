@@ -21,6 +21,10 @@ import com.javateam.dummyProject.domain.UserVO;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * @author RJA
+ */
+
 @Service
 @Slf4j
 public class UserService {

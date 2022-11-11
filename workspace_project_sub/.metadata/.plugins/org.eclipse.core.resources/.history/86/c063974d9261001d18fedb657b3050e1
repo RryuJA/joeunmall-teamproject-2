@@ -1,0 +1,45 @@
+package com.javateam.dummyProject.dao;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
+
+import com.javateam.dummyProject.domain.OrderProductVO;
+
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * @author RJA
+ */
+
+@Repository
+@Slf4j
+public class OrderProductDAO {
+	
+	private JdbcTemplate jdbcTemplate;
+	
+    @Autowired
+	public void setDataSource(DataSource dataSource) {
+		this.jdbcTemplate = new JdbcTemplate(dataSource);
+	}
+	
+	private final String ORDER_PRODUCT_INSERT = "INSERT INTO order_product_tbl VALUES("
+											+ "?, ?, ?, ?, ?)";		//주문상품번호, 고객번호, 상품번호, 상품옵션번호, 상품개수
+	
+	public void insertProductTBL(OrderProductVO vo) {
+		log.info("ORDER_PRODUCT_TBL INSERT");
+		jdbcTemplate.update(ORDER_PRODUCT_INSERT, 
+							vo.getOrderProductIndex(), vo.getUserIndex(), vo.getProductIndex(), 
+							vo.getProductOptionIndex(), vo.getProductCount());
+		
+	}
+	
+}
+

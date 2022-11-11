@@ -4,34 +4,36 @@ import java.io.Serializable;
 import java.util.Date;
 
 /** 
- * 상품정보 VO(값 객체) 
+ * 상품정보 VO
+ * 
+ * @author RJA
  */
 public class ProductVO implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	//상품번호 : 00_00_000
+	/** (PK)상품번호 : 00_00_000 */
 	private String productIndex;
 	
-	//카테고리번호 : 00
+	/** (FK)카테고리번호 : 00 */
 	private String productCategoryIndex;
 	
-	//판매상태번호 : 0 또는 1
+	/** (FK)판매상태번호 : 0 또는 1 */
 	private String productStateIndex;
 	
-	//상품명
+	/** 상품명 */
 	private String productName;
 	
-	//상품가격
+	/** 상품가격 */
 	private int productPrice;
 	
-	//대표이미지
+	/** 대표이미지 */
 	private String productImage;
 	
-	//등록일
+	/** 등록일 */
 	private Date productDate;
 	
-	//상세정보
+	/** 상세정보 */
 	private String productInfo;
 
 	public String getProductIndex() {

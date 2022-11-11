@@ -4,49 +4,51 @@ import java.io.Serializable;
 import java.util.Date;
 
 /** 
- * 고객정보 VO(값 객체) 
+ * 고객정보 VO
+ * 
+ * @author RJA
  */
 public class UserVO implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	// 고객번호 : ﻿0000000
+	/** (PK)고객번호 : ﻿0000000 */
 	private String userIndex;
 	
-	// 아이디
+	/** 아이디 */
 	private String userId;
 	
-	// 이름
+	/** 이름 */
 	private String userName;
 	
-	// 비밀번호
+	/** 비밀번호 */
 	private String userPw;
 	
-	// 가입일
+	/** 가입일 */
 	private Date userDate;
 	
-	// 이메일
+	/** 이메일 */
 	private String userEmail;
 	
-	// 생년월일
+	/** 생년월일 */
 	private Date userBirth;
 	
-	// 성별
+	/** 성별 */
 	private String userGender;
 	
-	// 일반전화
+	/** 일반전화 */
 	private String userLandline;
 	
-	// 휴대전화
+	/** 휴대전화 */
 	private String userMobile;
 	
-	// 우편번호
+	/** 우편번호 */
 	private String userPost;
 	
-	// 주소
+	/** 주소 */
 	private String userAddress;
 	
-	// 상세주소
+	/** 상세주소 */
 	private String userAddressDetail;
 
 	public String getUserIndex() {

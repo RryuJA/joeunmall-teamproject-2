@@ -1,22 +1,23 @@
 package com.javateam.dummyProject.domain;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /** 
  * 상품이미지 VO 
+ * 
+ * @author RJA
  */
 public class ProductImageVO implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	//상품이미지번호: 00_00_000_0
+	/** (PK)상품이미지번호: 00_00_000_0 */
 	private String productImageIndex;
 	
-	//상품번호 : 00_00_000
+	/** (FK)상품번호 : 00_00_000 */
 	private String productIndex;
 	
-	//상품상세이미지
+	/** 상품상세이미지 */
 	private String productDetailImage;
 
 	public String getProductImageIndex() {
