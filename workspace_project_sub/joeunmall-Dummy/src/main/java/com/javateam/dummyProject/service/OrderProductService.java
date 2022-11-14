@@ -12,10 +12,8 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.javateam.dummyProject.dao.UserDAO;
 import com.javateam.dummyProject.domain.OrderProductVO;
 import com.javateam.dummyProject.domain.ProductVO;
 import com.javateam.dummyProject.domain.UserVO;
@@ -29,13 +27,6 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 @Slf4j
 public class OrderProductService {
-	
-	public void testPrint() {
-		System.out.println(makeOrderProductIndex());
-		System.out.println(getUserIndex());
-		System.out.println(getProductIndex());
-		System.out.println();
-	} 
 	
 	/** USER_TBL에 저장된 고객정보 50명 랜덤순서로 저장 */
 	private List<UserVO> userDummy;
@@ -71,7 +62,7 @@ public class OrderProductService {
 	 * 주문상품번호 형식 : ﻿00_00_000_OP0
 	 * '주문일자 6자리'_'고객번호 7자리'_'고객의 당일 주문 순서 1자리'_OR (+) '주문상품번호'  
 	 * 주문상품번호는 1~5까지만 가능
-	 * @return 상품옵션번호
+	 * @return 주문상품번호
 	 */	
 	private String makeOrderProductIndex() {
 		if(randomNum < nowNum) {

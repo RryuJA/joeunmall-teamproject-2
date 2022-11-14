@@ -9,18 +9,21 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.javateam.dummyProject.service.UserService;
+import com.javateam.dummyProject.dao.OrderDAO;
 import com.javateam.dummyProject.dao.OrderProductDAO;
 import com.javateam.dummyProject.dao.ProductDAO;
 import com.javateam.dummyProject.dao.ProductImageDAO;
 import com.javateam.dummyProject.dao.ProductOptionDAO;
 import com.javateam.dummyProject.dao.UserDAO;
 import com.javateam.dummyProject.domain.OrderProductVO;
+import com.javateam.dummyProject.domain.OrderVO;
 import com.javateam.dummyProject.domain.ProductImageVO;
 import com.javateam.dummyProject.domain.ProductOptionVO;
 import com.javateam.dummyProject.domain.ProductVO;
 import com.javateam.dummyProject.domain.UserVO;
 import com.javateam.dummyProject.service.InquiryService;
 import com.javateam.dummyProject.service.OrderProductService;
+import com.javateam.dummyProject.service.OrderService;
 import com.javateam.dummyProject.service.ProductImageService;
 import com.javateam.dummyProject.service.ProductOptionService;
 import com.javateam.dummyProject.service.ProductService;
@@ -36,6 +39,7 @@ public class HomeController {
 	private ProductImageService productImageSvc;
 	private ProductOptionService productOptionSvc;
 	private OrderProductService orderProductSvc;
+	private OrderService orderSvc;
 	private InquiryService inquirySvc;
 
 	private UserDAO userDAO;
@@ -43,17 +47,19 @@ public class HomeController {
 	private ProductImageDAO productImageDAO;
 	private ProductOptionDAO productOptionDAO;
 	private OrderProductDAO orderProductDAO;
+	private OrderDAO orderDAO;
 	
 	@Autowired
 	public HomeController(UserService userSvc, ProductService productSvc, ProductImageService productImageSvc, 
-						  ProductOptionService productOptionSvc, OrderProductService orderProductSvc, InquiryService inquirySvc, 
-						  UserDAO userDAO, ProductDAO productDAO, ProductImageDAO productImageDAO, 
-						  ProductOptionDAO productOptionDAO, OrderProductDAO orderProductDAO) {
+						  ProductOptionService productOptionSvc, OrderProductService orderProductSvc, OrderService orderSvc, 
+						  InquiryService inquirySvc, UserDAO userDAO, ProductDAO productDAO, ProductImageDAO productImageDAO, 
+						  ProductOptionDAO productOptionDAO, OrderProductDAO orderProductDAO, OrderDAO orderDAO) {
 		this.userSvc = userSvc;
 		this.productSvc = productSvc;
 		this.productImageSvc = productImageSvc;
 		this.productOptionSvc = productOptionSvc;
 		this.orderProductSvc = orderProductSvc;
+		this.orderSvc = orderSvc;
 		this.inquirySvc = inquirySvc;
 		
 		this.userDAO = userDAO;
@@ -61,15 +67,13 @@ public class HomeController {
 		this.productImageDAO = productImageDAO;
 		this.productOptionDAO = productOptionDAO;
 		this.orderProductDAO = orderProductDAO;
+		this.orderDAO = orderDAO;
 	}
-	
 	
 	@GetMapping("/")
 	public String home(Model model) throws ClassNotFoundException, IOException {
 		
 		//log.info("home");
-		
-		
 		
 		//--------------------------------------------------------------------------------------------------
 		
@@ -79,10 +83,16 @@ public class HomeController {
 		//productImageSvc.dummyData();
 		//productOptionSvc.dummyData();
 		
-		// OrderProductService 에는 DB에 저장되어있는 데이터가 필요함
+		// OrderProductService는 DB에 저장되어있는 데이터가 필요함
 		/*orderProductSvc.setUserDummy(userDAO.selectUserTBLRandom());
 		orderProductSvc.setProductDummy(productDAO.selectProductTBLRandom());
 		orderProductSvc.dummyData();*/
+		
+		//OrderService는 DB에 저장되어있는 데이터가 필요함
+		/*orderSvc.setUserDummy(userDAO.selectUserTBLAll());
+		orderSvc.setProductDummy(productDAO.selectProductTBLAll());
+		orderSvc.setOrderProductDummy(orderProductDAO.selectOrderProductTBLAll());
+		orderSvc.dummyData();*/
 		
 		//--------------------------------------------------------------------------------------------------
 		
@@ -131,6 +141,13 @@ public class HomeController {
 		for(int i=0; i<orderProductList.size(); i++) {
 			orderProductDAO.insertOrderProductTBL(orderProductList.get(i));
 		}*/
+		
+		// OrderDAO
+		// C:\\joeunmall-teamproject2\\workspace_project_sub\\joeunmall-Dummy\\src\\main\\resources\\ser\\OrderListDummy.ser
+		List<OrderVO> orderList = orderSvc.getOrderListFromSerFile("C:\\joeunmall-teamproject2\\workspace_project_sub\\joeunmall-Dummy\\src\\main\\resources\\ser\\OrderListDummy.ser"); 
+		for(int i=0; i<orderList.size(); i++) {
+			orderDAO.insertOrderTBL(orderList.get(i));
+		}
 		
 		//--------------------------------------------------------------------------------------------------
 		

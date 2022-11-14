@@ -35,6 +35,8 @@ public class ProductDAO {
 											+ "?, ?, ?)";			//대표이미지, 등록일, 상세정보
 
 	private final String PRODUCT_SELECT_RANDOM = "SELECT * FROM ( SELECT * FROM product_tbl ORDER BY DBMS_RANDOM.VALUE) WHERE ROWNUM <= 200";
+	
+	private final String PRODUCT_SELECT_ALL = "SELECT * FROM product_tbl";
     
 	public void insertProductTBL(ProductVO vo) {
 		log.info("PRODUCT_TBL INSERT");
@@ -48,6 +50,30 @@ public class ProductDAO {
 		log.info("PRODUCT_TBL SELECT RANDOM DATA");
 		
 		List<ProductVO> vo = jdbcTemplate.query(PRODUCT_SELECT_RANDOM, new RowMapper<ProductVO>() {
+			@Override
+			public ProductVO mapRow(ResultSet rs, int rowNum) throws SQLException {
+				ProductVO product = new ProductVO();
+				
+				product.setProductIndex(rs.getString(1));
+				product.setProductCategoryIndex(rs.getString(2));
+				product.setProductStateIndex(rs.getString(3));
+				product.setProductName(rs.getString(4));
+				product.setProductPrice(rs.getInt(5));
+				product.setProductImage(rs.getString(6));
+				product.setProductDate(rs.getDate(7));
+				product.setProductInfo(rs.getString(8));
+				
+				return product;
+			}
+		});
+		
+		return vo;		
+	}
+	
+	public List<ProductVO> selectProductTBLAll() {
+		log.info("PRODUCT_TBL SELECT ALL DATA");
+		
+		List<ProductVO> vo = jdbcTemplate.query(PRODUCT_SELECT_ALL, new RowMapper<ProductVO>() {
 			@Override
 			public ProductVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 				ProductVO product = new ProductVO();

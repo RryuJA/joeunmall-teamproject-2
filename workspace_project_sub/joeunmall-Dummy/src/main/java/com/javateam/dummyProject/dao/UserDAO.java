@@ -37,6 +37,8 @@ public class UserDAO {
 	
 	private final String USER_SELECT_RANDOM = "SELECT * FROM ( SELECT * FROM user_tbl ORDER BY DBMS_RANDOM.VALUE) WHERE ROWNUM <= 50";
 
+	private final String USER_SELECT_ALL = "SELECT * FROM user_tbl";
+	
 	/**
 	 * USER_TBL에 데이터 insert
 	 * 
@@ -59,6 +61,38 @@ public class UserDAO {
 		log.info("USER_TBL SELECT RANDOM DATA");
 		
 		List<UserVO> vo = jdbcTemplate.query(USER_SELECT_RANDOM, new RowMapper<UserVO>() {
+			@Override
+			public UserVO mapRow(ResultSet rs, int rowNum) throws SQLException {
+				UserVO user = new UserVO();
+				
+				user.setUserIndex(rs.getString(1));
+				user.setUserId(rs.getString(2));
+				user.setUserName(rs.getString(3));
+				user.setUserPw(rs.getString(4));
+				user.setUserDate(rs.getDate(5));
+				user.setUserEmail(rs.getString(6));
+				user.setUserBirth(rs.getDate(7));
+				user.setUserGender(rs.getString(8));
+				user.setUserLandline(rs.getString(9));
+				user.setUserMobile(rs.getString(10));
+				user.setUserPost(rs.getString(11));
+				user.setUserAddress(rs.getString(12));
+				user.setUserAddressDetail(rs.getString(13));
+				
+				return user;
+			}
+		});
+		
+		return vo;
+	}
+	
+	/**
+	 * @return USER_TBL에서 가져온 정보 List 50개
+	 */
+	public List<UserVO> selectUserTBLAll() {
+		log.info("USER_TBL SELECT ALL DATA");
+		
+		List<UserVO> vo = jdbcTemplate.query(USER_SELECT_ALL, new RowMapper<UserVO>() {
 			@Override
 			public UserVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 				UserVO user = new UserVO();

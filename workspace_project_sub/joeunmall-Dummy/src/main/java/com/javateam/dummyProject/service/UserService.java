@@ -28,26 +28,6 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 @Slf4j
 public class UserService {
-	
-/*	
- * public void testPrint() {
-		System.out.println("UserIndex: " + makeUserIndex());
-		System.out.println("UserID: " + makeUserId());
-		System.out.println("UserName: " + makeUserName());
-		System.out.println("UserPw: " + makeUserPw());
-		System.out.println("UserDate: " + makeUserDate());
-		System.out.println("UserEmail: " + makeUserEmail());
-		System.out.println("UserBirth: " + makeUserBirth());
-		System.out.println("UserGender: " + makeUserGender());
-		System.out.println("UserLaneline: " + makeUserLaneline());
-		System.out.println("UserMobile: " + makeUserMobile());
-		System.out.println("UserPost: " + makeUserPost());
-		System.out.println("UserAddress: " + makeUserAddress());
-		System.out.println("UserAddressDetail: " + makeUserAddressDetail());
-		
-		System.out.println();
-	}
-*/
 
 	/**
 	 * 고객번호 형식 : ﻿0000000

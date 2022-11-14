@@ -30,17 +30,6 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 @Slf4j
 public class ProductService {
-
-/*	
-	public void testPrint() {
-		System.out.println("ProductIndex: " + makeProductIndex());
-		System.out.println("ProductCategoryIndex: " + makeProductCategoryIndex());
-		System.out.println("ProductStateIndex: " + makeProductStateIndex());
-		System.out.println("ProductDate: " + makeProductDate());
-		
-		System.out.println();
-	}
-*/
 	
 	//카테고리 번호
 	private String category[] = {"01", "02", "03", "04", "05"};
