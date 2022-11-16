@@ -37,23 +37,20 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ReviewService {
 	
-	/** PRODUCT_TBL에 저장된 상품정보 250개 저장 */
-	private List<ProductVO> productDummy;
+	/** PRODUCT_TBL에 저장된 상품정보의 상품번호만 저장 */
 	private Map<String, Integer> productReviewCount = new HashMap<String, Integer>();
 	
-	/** ORDER_TBL에 저장된 주문정보 33개 저장 */
+	/** ORDER_TBL에 저장된 주문정보 저장 */
 	private List<OrderVO> orderDummy;
 	
-	/** ORDER_PRODUCT_TBL에 저장된 주문상품정보 100개 저장 */
-	private List<OrderProductVO> orderProductDummy;
+	/** ORDER_PRODUCT_TBL에 저장된 주문상품정보 중 첫번째 옵션만 저장 */
+	private Map<String, OrderProductVO> orderOptionMap = new HashMap<String, OrderProductVO>();
 	
 	/**
 	 * ProductDAO.selectProductTBLALL() 결과를 가져옴
 	 * @param productDummy
 	 */
-	public void setProductDummy(List<ProductVO> productDummy) {
-		this.productDummy = productDummy;
-		
+	public void setProductDummy(List<ProductVO> productDummy) {		
 		//Map<상품번호, 상품당 리뷰수>
 		for(int i=0; i<productDummy.size(); i++) {
 			productReviewCount.put(productDummy.get(i).getProductIndex(), 0);
@@ -72,31 +69,59 @@ public class ReviewService {
 	 * OrderProductDAO.selectOrderProductTBLAll() 결과를 가져옴
 	 * @param orderProductDummy
 	 */
-	public void setOrderProductDummy(List<OrderProductVO> orderProductDummy) {
-		this.orderProductDummy = orderProductDummy;
+	public void setOrderProductDummy(List<OrderProductVO> orderProductDummy) {		
+		for(int i=0; i<orderDummy.size(); i++) {
+			orderOptionMap.put(orderDummy.get(i).getOrderIndex(), orderProductDummy.get(i));
+		}
 	}
 	
 	/**
 	 * 리뷰번호 형식 : ﻿00_00_000_REV000
 	 * ﻿﻿'상품번호' (+) _REV (+) '해당 상품의 리뷰 등록 순서 3자리'
+	 * @param 상품번호
 	 * @return 리뷰번호
 	 */
-	private String makeReviewIndex() {
+	private String makeReviewIndex(String productIndex) {
+		String result = productIndex + "_REV";
 		
-		return "";
+		int count = productReviewCount.get(productIndex) + 1;
+		productReviewCount.put(productIndex, count);
+		
+		result += String.format("%03d", productReviewCount.get(productIndex));
+		
+		return result;
+	}
+
+	private String makeReviewContent() {
+		String contents[] = {
+				"아주 편해요",
+				"스타일 좋아서 구매했는데 다들 이쁘다고해요",
+				"막 입기 아까울정도로 이쁘고 넘 맘에드네요~",
+				"다들 어디에서 샀냐고 물어보네요",
+				"아침 저녁으로 입기 딱좋고~~ 늘 입어도 될거같아요^^",
+				"단순하게 입어도 요거 입어주면 밋밋하지 않고 느낌있게 코디가능",
+				"좀 작아요",
+				"신축성이 아주 좋네요 넉넉히 입고 싶어요. 생각보다 두꺼워요",
+				"요새 매일 입고 다녀요"
+		};
+		
+		String result = contents[(int)(Math.random() * contents.length)];
+		return result;
 	}
 	
-
-
 	// 더미데이터 리스트
 	public void dummyData() {
 		List<ReviewVO> reviewList = new ArrayList<>();
 		ReviewVO reviewVO;
 		
-		for(int i=0; i<50; i++) {
+		for(int i=0; i<orderDummy.size(); i++) {
 			reviewVO = new ReviewVO();
 			
-			//reviewVO.setReviewIndex(reviewIndex);
+			reviewVO.setOrderIndex(orderDummy.get(i).getOrderIndex());
+			reviewVO.setProductIndex(orderOptionMap.get(reviewVO.getOrderIndex()).getProductIndex());
+			reviewVO.setReviewIndex(makeReviewIndex(reviewVO.getProductIndex()));
+			reviewVO.setReviewDate(orderDummy.get(i).getOrderDate());
+			reviewVO.setReviewContent(makeReviewContent());
 			
 			log.info(reviewVO.toString());
 			

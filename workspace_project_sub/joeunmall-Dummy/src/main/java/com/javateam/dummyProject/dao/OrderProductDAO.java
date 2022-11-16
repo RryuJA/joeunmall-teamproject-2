@@ -33,7 +33,7 @@ public class OrderProductDAO {
 	private final String ORDER_PRODUCT_INSERT = "INSERT INTO order_product_tbl VALUES("
 												+ "?, ?, ?, ?, ?)";		//주문상품번호, 고객번호, 상품번호, 상품옵션번호, 상품개수
 	
-	private final String ORDER_PRODUCT_SELECT_ALL = "SELECT * FROM order_product_tbl";
+	private final String ORDER_PRODUCT_SELECT_FIRST_OPTION = "SELECT * FROM order_product_tbl WHERE SUBSTR(order_product_index, 20, 1) = 1";
 	
 	public void insertOrderProductTBL(OrderProductVO vo) {
 		log.info("ORDER_PRODUCT_TBL INSERT");
@@ -43,10 +43,10 @@ public class OrderProductDAO {
 		
 	}
 	
-	public List<OrderProductVO> selectOrderProductTBLAll() {
-		log.info("ORDER_PRODUCT_TBL SELECT ALL DATA");
+	public List<OrderProductVO> selectOrderProductTBLFirstOption() {
+		log.info("ORDER_PRODUCT_TBL SELECT FIRST OPTION DATA");
 		
-		List<OrderProductVO> vo = jdbcTemplate.query(ORDER_PRODUCT_SELECT_ALL, new RowMapper<OrderProductVO>() {
+		List<OrderProductVO> vo = jdbcTemplate.query(ORDER_PRODUCT_SELECT_FIRST_OPTION, new RowMapper<OrderProductVO>() {
 			@Override
 			public OrderProductVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 				OrderProductVO orderProduct = new OrderProductVO();

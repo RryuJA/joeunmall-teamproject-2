@@ -107,8 +107,9 @@ public class HomeController {
 		
 		//ReviewService: 상품번호, 주문번호 필요
 		/*reviewSvc.setProductDummy(productDAO.selectProductTBLAll());
-		reviewSvc.setOrderProductDummy(orderProductDAO.selectOrderProductTBLAll());
-		reviewSvc.setOrderDummy(orderDAO.selectOrderTBLAll());*/
+		reviewSvc.setOrderDummy(orderDAO.selectOrderTBLAll());
+		reviewSvc.setOrderProductDummy(orderProductDAO.selectOrderProductTBLFirstOption());
+		reviewSvc.dummyData();*/
 		
 		//--------------------------------------------------------------------------------------------------
 		
@@ -171,6 +172,8 @@ public class HomeController {
 		for(int i=0; i<inquiryList.size(); i++) {
 			inquiryDAO.insertInquiryTBL(inquiryList.get(i));
 		}*/
+		
+		
 		
 		//--------------------------------------------------------------------------------------------------
 		
