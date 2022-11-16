@@ -1,0 +1,46 @@
+package com.javateam.dummyProject.domain;
+
+import java.io.Serializable;
+import java.util.Date;
+
+/** 
+ * 주문상품정보 VO
+ * 
+ * @author RJA
+ */
+public class OrderVO implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+	
+	/** (PK)주문번호 : 000000_0000000_0*/
+	private String orderIndex;
+	
+	/** (FK)고객번호 */
+	private String userIndex;
+	
+	/** (FK)진행상태번호 */
+	private String orderStateIndex;
+	
+	/** (FK)결제유형번호 */
+	private String paymentIndex;
+	
+	/** 주문일자 */
+	private Date orderDate;
+	
+	/** 총액 */
+	private int orderPrice;
+	
+	/** 수령인 */
+	private String orderName;
+	
+	private String orderPost;
+	
+	private String orderAddress;
+	
+	private String orderAddressDetail;
+	
+	private String orderMobile;
+	
+	private String orderMessage;
+
+}

@@ -29,6 +29,10 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class UserService {
 
+	//가입일 
+	private String dummyMonth = "01";
+	private String dummyDay = "01";
+	
 	/**
 	 * 고객번호 형식 : ﻿0000000
 	 * '﻿가입년도 4자리' (+) '해당년도 가입 순서 3자리'
@@ -96,7 +100,30 @@ public class UserService {
 	private Date makeUserDate() {
 		Date date = new Date();
 		
-		return date;
+		String result = "2022-";
+		
+		//가입일자 1~4일자 정도  텀두고 증가
+		int randomDay = Integer.parseInt(dummyDay) + (int)Math.floor(Math.random()*4 + 1);
+		dummyDay = randomDay < 10 ? "0" + randomDay : randomDay + "";
+		
+		//일자가 30일이 넘어갈 경우, 다음달 1일로 변경
+		if(Integer.parseInt(dummyDay) > 30) {
+			dummyDay = "01";
+			dummyMonth = Integer.parseInt(dummyMonth) < 9 ? 
+							"0" + (Integer.parseInt(dummyMonth) + 1) : (Integer.parseInt(dummyMonth) + 1) + "";
+		}
+		
+		result += dummyMonth + "-" + dummyDay;
+		
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		try {	// parse 함수 사용 시 ParseException 처리 필요
+			date = format.parse(result);
+			return date;
+		} catch(ParseException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		return null;
 	}
 	
 	/**

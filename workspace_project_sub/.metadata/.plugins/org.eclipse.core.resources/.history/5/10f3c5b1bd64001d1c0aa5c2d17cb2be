@@ -1,0 +1,260 @@
+package com.javateam.dummyProject.service;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.springframework.stereotype.Service;
+
+import com.javateam.dummyProject.domain.ProductVO;
+
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * @author RJA
+ */
+
+@Service
+@Slf4j
+public class ProductService {
+	
+	//카테고리 번호
+	private String category[] = {"01", "02", "03", "04", "05"};
+	
+	//categoryCount : 각 카테고리별 상품 수
+	private int categoryCount[] = {0, 0, 0, 0, 0};
+	
+	//현재 카테고리
+	private int categoryNum = 0;
+	
+	/**
+	 * 상품번호 형식 : ﻿00_00_000
+	 * '상품등록연도 2자리'_'상품 카테고리 번호 2자리'_'상품 등록 순서 3자리'
+	 * @return 상품번호
+	 */
+	private String makeProductIndex() {
+		String result = "22_";
+
+		categoryNum = categoryCount[categoryNum] >= 50 ? ++categoryNum : categoryNum;
+		
+		categoryCount[categoryNum] += 1;
+		
+		result += category[categoryNum];
+		result += "_";
+		result += String.format("%03d", categoryCount[categoryNum]);
+
+		return result;
+	}
+	
+	/**
+	 * 카테고리번호 형식 : ﻿00
+	 * categoryNum : 상품번호에 사용된 카테고리번호
+	 * @return 카테고리번호
+	 */	
+	private String makeProductCategoryIndex() {
+		String result = category[categoryNum];
+		
+		return result;
+	}
+	
+	/**
+	 * 판매상태번호 : ﻿0 또는 1
+	 * @return 판매상태번호
+	 */	
+	private String makeProductStateIndex() {
+		String result = String.format("%1d", (int)(Math.random()*2));
+		
+		return result;
+	}
+	
+	/**
+	 * @return 상품등록일
+	 */	
+	private Date makeProductDate() {
+		Date productDate = new Date();
+		
+		String result = "2022-";
+		
+		int month = (int)(Math.random()*12+1);
+		result += month < 10 ? "0"+month+"-" : month+"-";
+		
+		int date = (int)(Math.random()*30+1);
+		result += date < 10 ? "0"+month : month+"";
+		
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		try {	// parse 함수 사용 시 ParseException 처리 필요
+			productDate = format.parse(result);
+			return productDate;
+		} catch(ParseException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		return null;
+	}
+	
+	// 이미지 경로
+	private String imagePath[] = {"01_tshirt", "02_pants", "03_onepiece", "04_cardigan", "05_jacket"};
+	
+	/**
+	 * @param 상품번호
+	 * 
+	 * @return 대표이미지 경로
+	 */
+	private String makeProductImagePath(String productIndex) {
+		String path = "C:/joeunmall-teamproject/product_images/";
+		
+		path += imagePath[categoryNum] + "/" + productIndex + "_thumbnail.jpg";
+		
+		return path;
+	}
+	
+	
+	// 원천 사이트상의 카테고리 번호
+	private String crawlCateNum[] = {"025", "019", "026", "003", "054"};
+	
+	/**
+	 * 상품명, 상품가격 크롤링 후 직렬화
+	 * @throws IOException
+	 */
+	public void crawlProducts() throws IOException {
+		List<ProductVO> prList = new ArrayList<>();
+		ProductVO productVO;
+		
+		for(int i=0; i<5; i++) {
+			String siteLink = "https://www.ely-sia.net/shop/shopbrand.html?xcode="+crawlCateNum[i]+"&type=X";
+			Document doc = Jsoup.connect(siteLink).get();
+					
+			for (int j=0; j<50; j++) {
+				String branduid = "";
+				productVO = new ProductVO();
+				
+				// 갤러리 한 페이지의 요소수 한계량 : 36개 (4 * 9) : 행 * 열
+				// 다음 페이지(2 페이지)로 넘어가기 
+				if (j >= 36) {
+					//log.info("페이지 전환(다음 2페이지)");
+					siteLink += "&sort=&page=2";
+					doc = Jsoup.connect(siteLink).get();	
+				} 
+				
+				// 페이지 전환시 인덱스(index) 설정
+				int realIndexPerpage = j >= 36 ?  j - 36 : j; 
+				
+				try {
+					branduid = doc.select("dd.prd-info")
+							   	  .get(realIndexPerpage) // 주의) index 가 다시 실질적 초기화 !
+								  .getElementsByClass("prd-price")
+								  .get(0)
+								  .getElementsByClass("crema-product-reviews-count")
+								  .attr("data-product-code");	
+				} catch (Exception e) {
+					log.error("{} 번째 요소 고유 번호 수집 에러 : 일반 DOM 유형이 아님 : {}", i+1, e);
+				} 
+				
+				//log.info("상품 고유번호 (branduid) : " + branduid);
+				
+				//log.info("///--------------------------------------------------------------------------------");
+				
+				//log.info("개별 상품 정보 조회 : " + branduid);
+				
+				// 개별 상품 대표 이미지 주소
+				String siteImageLink = "https://www.ely-sia.net/shop/shopdetail.html?branduid="+branduid;
+				Document doc2 = Jsoup.connect(siteImageLink).get();
+				
+				// 상품명 수집
+				String productName = doc2.select("form#form1")
+									   	 .get(0)
+										 .getElementsByClass("tit-prd") //  <h3 class="tit-prd">
+										 .get(0)
+										 .html();
+				
+				productName = productName.substring(0, productName.indexOf("<div>")).trim(); // 불필요 데이터 제거
+				
+				//log.info("상품명 : " + productName);
+				
+				
+				// 상품 단가(정가) 수집
+				// <input type="hidden" id="price_wh" name="price_wh" value="48,500" />
+				String productPrice = doc2.select("form#form1")
+									   	 .get(0)
+										 // .getElementById("price_wh")
+									   	 .getElementById("regular_price")
+										 .val();
+										 
+				productPrice = productPrice.replaceAll(",", ""); // "," 제거
+				//log.info("상품가(정가) : " + productPrice);
+				
+				productVO.setProductIndex(makeProductIndex());
+				productVO.setProductCategoryIndex(makeProductCategoryIndex());
+				productVO.setProductStateIndex(makeProductStateIndex());
+				productVO.setProductName(productName);
+				productVO.setProductPrice(Integer.parseInt(productPrice));
+				productVO.setProductImage(makeProductImagePath(productVO.getProductIndex()));
+				productVO.setProductDate(makeProductDate());
+				productVO.setProductInfo(productVO.getProductName() + " DummyInfo");			
+				
+				System.out.println(productVO.toString());
+				
+				prList.add(productVO);
+			}
+			
+		}	
+		
+		log.info("직렬화 시작");
+		
+		String fileLocation = new File("C:\\joeunmall-teamproject2\\workspace_project_sub\\joeunmall-Dummy\\src\\main\\resources\\ser").getAbsolutePath() 
+								+ "\\ProductListDummy.ser";
+		
+		try (FileOutputStream     fos = new FileOutputStream(fileLocation);
+			 BufferedOutputStream bos = new BufferedOutputStream(fos);) 
+		{
+			ObjectOutputStream out = new ObjectOutputStream(bos);
+			out.writeObject(prList);
+			
+		} catch (IOException e) {
+			
+			log.error("직렬화 저장 에러 : " + e);
+			e.printStackTrace();
+		}
+		
+		log.info("직렬화 종료");
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<ProductVO> getProductListFromSerFile(String filePath) throws FileNotFoundException {
+		
+		File file = new File(filePath);
+		List<ProductVO> prList = null;
+		
+		try (FileInputStream     fis = new FileInputStream(file);
+			 BufferedInputStream bis = new BufferedInputStream(fis);) {
+		
+			ObjectInputStream in = new ObjectInputStream(bis);
+			
+			prList = (List<ProductVO>)in.readObject();
+			
+		} catch (IOException e) {
+			log.error("역직렬화 에러 : " + e);
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			log.error("직렬화 파일 로딩 오류 : " + e);
+			e.printStackTrace();
+		}
+		
+		return prList;
+	}
+	
+	
+}

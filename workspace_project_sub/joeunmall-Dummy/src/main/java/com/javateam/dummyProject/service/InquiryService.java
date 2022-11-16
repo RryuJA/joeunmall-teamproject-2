@@ -20,6 +20,7 @@ import org.jsoup.nodes.Document;
 import org.springframework.stereotype.Service;
 
 import com.javateam.dummyProject.domain.InquiryVO;
+import com.javateam.dummyProject.domain.UserVO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -31,8 +32,22 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class InquiryService {
 	
+	/** USER_TBL에 저장된 고객정보 50명 랜덤순서로 저장 */
+	private List<UserVO> userDummy;
+	
 	private String month = "08";
 	private String day = "10";
+	
+	private int randomNum = 0;
+	private int nowNum = 10;
+	
+	/**
+	 * UserDAO.selectUserTBLRandom() 결과를 가져옴
+	 * @param userDummy
+	 */
+	public void setUserDummy(List<UserVO> userDummy) {
+		this.userDummy = userDummy;
+	}
 	
 	/**
 	 * 문의번호 형식 : ﻿000000000
@@ -40,48 +55,47 @@ public class InquiryService {
 	 * @return 문의번호
 	 */
 	private String makeInquiryIndex() {
-		String result = "22";
+		if(randomNum < nowNum) {
+			randomNum = (int)Math.floor(Math.random()*5 + 1);
+			nowNum = 1;
+			
+			//일자 변경
+			day = String.format("%02d", (Integer.parseInt(day) + (int)(Math.random()*6 + 1)));
+			
+			//일자가 30일이 넘어갈 경우, 다음달 1일로 변경
+			if(Integer.parseInt(day) > 30) {
+				day = "01";
+				month = Integer.parseInt(month) < 9 ? 
+								"0" + (Integer.parseInt(month) + 1) : (Integer.parseInt(month) + 1) + "";
+			}
+		}	
 		
-		result += month + day + "001";
-		day = String.format("%02d", (Integer.parseInt(day) + 1));
+		String result = "22";
+		result += month + day + String.format("%03d", nowNum);
+		nowNum += 1;
 
 		return result;
 	}
 	
 	/**
-	 * 고객번호 형식 : ﻿0000000
-	 * '﻿가입년도 4자리' (+) '해당년도 가입 순서 3자리'
-	 * userIndexCount : 가입 순서 저장
+	 * 고객Dummy에서 고객 랜덤호출
 	 * @return 고객번호
-	 */
-	private int userIndexCount = 0;
-	
-	private String makeUserIndex() {
-		String result = "2022";
-		this.userIndexCount++;
-		result += String.format("%03d", userIndexCount);
-		
+	 */	
+	private String returnUserIndex() {
+		String result = userDummy.get(0).getUserIndex();
+		userDummy.remove(0);
 		return result;
 	}
 	
 	/**
-	 * 문의일자
-	 * '﻿가입년도 4자리' (+) '해당년도 가입 순서 3자리'
-	 * userIndexCount : 가입 순서 저장
-	 * @return 고객번호
+	 * @return 문의일자
 	 */
 	private Date makeInqiryDate() {
 		Date date = new Date();
 		
-		if(Integer.parseInt(day) > 30) {
-			day = "01";
-			int num = Integer.parseInt(month) + 1;
-			month = num < 10 ? "0" + num : num + "";
-		}
-		
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
 		try {	// parse 함수 사용 시 ParseException 처리 필요
-			date = format.parse("2022-" + month + "-" + day);
+			date = format.parse("2022" + month + day);
 			return date;
 		} catch(ParseException e) {
 			System.out.println(e.getMessage());
@@ -112,20 +126,21 @@ public class InquiryService {
 		for(int i=0; i<50; i++) {
 			inquiryVO = new InquiryVO();
 			
-			inquiryVO.setInquiryDate(makeInqiryDate());
 			inquiryVO.setInquiryIndex(makeInquiryIndex());
-			inquiryVO.setUserIndex(makeUserIndex());
+			inquiryVO.setUserIndex(returnUserIndex());
+			inquiryVO.setInquiryDate(makeInqiryDate());
 			inquiryVO.setInquiryCategory(makeInquiryCategory());
+			inquiryVO.setInquiryState("답변완료");
+			inquiryVO.setInquiryTitle(inquiryVO.getInquiryIndex() + " 문의제목 dummy");
+			inquiryVO.setInquiryContent(inquiryVO.getInquiryIndex() + "문의내용 dummy");
+			inquiryVO.setInquiryAnswer(inquiryVO.getInquiryIndex() + "문의답변 dummy");
 			
-			log.info(inquiryVO.getInquiryIndex());
-			log.info(inquiryVO.getUserIndex());
-			log.info("" + inquiryVO.getInquiryDate());
-			log.info(inquiryVO.getInquiryCategory());
+			log.info(inquiryVO.toString());
 			
-			//inquiryList.add(inquiryVO);
+			inquiryList.add(inquiryVO);
 		}
 		
-		/*
+		
 		log.info("직렬화 시작");
 		
 		String fileLocation = new File("C:\\joeunmall-teamproject2\\workspace_project_sub\\joeunmall-Dummy\\src\\main\\resources\\ser").getAbsolutePath() 
@@ -143,12 +158,11 @@ public class InquiryService {
 			e.printStackTrace();
 		} 
 		
-		log.info("직렬화 종료");
-		*/
+		log.info("직렬화 종료");	
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<InquiryVO> getUserListFromSerFile(String filePath) throws FileNotFoundException {
+	public List<InquiryVO> getInquiryListFromSerFile(String filePath) throws FileNotFoundException {
 		
 		File file = new File(filePath);
 		List<InquiryVO> inquiryList = null;

@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /** 
- * 주문상품정보 VO
+ * 주문정보 VO
  * 
  * @author RJA
  */

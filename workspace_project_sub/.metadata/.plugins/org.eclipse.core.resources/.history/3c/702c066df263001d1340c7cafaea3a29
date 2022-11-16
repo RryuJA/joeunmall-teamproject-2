@@ -1,0 +1,248 @@
+package com.javateam.dummyProject.service;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.taglibs.standard.lang.jstl.parser.ParseException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.javateam.dummyProject.domain.OrderProductVO;
+import com.javateam.dummyProject.domain.OrderVO;
+import com.javateam.dummyProject.domain.ProductVO;
+import com.javateam.dummyProject.domain.UserVO;
+
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * @author RJA
+ */
+
+@Service
+@Slf4j
+public class OrderService {
+	
+	/** USER_TBL에 저장된 고객정보 50명 저장 */
+	private List<UserVO> userDummy;
+	private Map<String, UserVO> userMap = new LinkedHashMap<String, UserVO>();
+	
+	/** PRODUCT_TBL에 저장된 상품정보 250개 저장 */
+	private List<ProductVO> productDummy;
+	
+	/** ORDER_PRODUCT_TBL에 저장된 주문상품정보 100개 저장 */
+	private List<OrderProductVO> orderProductDummy;
+	
+	/** 주문번호별 총액 저장 */
+	Map<String, Integer> orderPrice = new LinkedHashMap<String, Integer>();
+	
+	public OrderService() {
+		makePriceMap();
+		
+		//userMap에 <고객번호, 고객VO>로 저장
+		for(int i=0; i<50; i++) {
+			userMap.put(userDummy.get(i).getUserIndex(), userDummy.get(i));
+		}
+	}
+	
+	/**
+	 * UserDAO.selectUserTBLRandom() 결과를 가져옴
+	 * @param userDummy
+	 */
+	public void setUserDummy(List<UserVO> userDummy) {
+		this.userDummy = userDummy;
+	}
+	
+	/**
+	 * ProductDAO.selectProductTBLALL() 결과를 가져옴
+	 * @param productDummy
+	 */
+	public void setProductDummy(List<ProductVO> productDummy) {
+		this.productDummy = productDummy;
+	}
+	
+	/**
+	 * OrderProductDAO.selectOrderProductTBLAll() 결과를 가져옴
+	 * @param orderProductDummy
+	 */
+	public void setOrderProductDummy(List<OrderProductVO> orderProductDummy) {
+		this.orderProductDummy = orderProductDummy;
+	}
+	
+	/**
+	 * Map에 주문번호별 총액을 저장
+	 * key: 주문번호
+	 * value: 총액
+	 */
+	private void makePriceMap() {
+		for(int i=0; i<100; i++) {
+			//주문상품List에서 주문번호만 가져옴
+			String orderIndex = orderProductDummy.get(i).getOrderProductIndex().substring(0, 16);
+			
+			//orderPrice Map에 주문번호가 이미 있을 경우
+			if(orderPrice.containsKey(orderIndex)) {
+				int price = orderPrice.get(orderIndex);
+				price += searchProductPrice(orderProductDummy.get(i));
+				
+				//value 변경 (총액 누적)
+				orderPrice.put(orderIndex, price);
+				
+			} else { //orderPrice Map에 주문번호가 없는 경우
+				orderPrice.put(orderIndex, searchProductPrice(orderProductDummy.get(i)));
+			}
+		}
+	}
+	
+	/**
+	 * 상품번호에 해당하는 상품가격을 상품테이블에서 리턴
+	 * @param OrderProductVO 상품번호
+	 * @return 상품번호에 해당하는 상품가격
+	 */
+	private int searchProductPrice(OrderProductVO vo) {
+		Iterator<ProductVO> iterator = productDummy.iterator();
+		while(iterator.hasNext()) {
+			ProductVO productVO = iterator.next();
+			if(productVO.getProductIndex().equals(vo.getProductIndex())) {
+				return productVO.getProductPrice();
+			}
+		}
+		return 0;
+	}
+	
+	/**
+	 * @param 주문번호
+	 * @return 고객번호
+	 */
+	private String returnUserIndex(String orderIndex) {
+		return orderIndex.substring(7, 7);
+	}
+	
+	/**
+	 * @return 진행상태번호 랜덤리턴
+	 */
+	private String makeOrderStateIndex() {
+		String state[] = {"STA4", "STA5", "STA7", "STA9"};
+		String result = state[(int)Math.random() * state.length];
+		
+		return result;
+	}
+	
+	/**
+	 * @return 결제유형번호 랜덤리턴
+	 */
+	private String makePaymentIndex() {
+		String payment[] = {"PAY1", "PAY2", "PAY3"};
+		String result = payment[(int)Math.random() * payment.length];
+		
+		return result;
+	}
+	
+	private Date makeOrderDate(String orderIndex) {
+		String date = "22" + orderIndex.substring(0, 6);
+		Date result = new Date();
+		
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			result = format.parse(date);
+			return result;
+		} catch(ParseException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		return null;
+	}
+	
+	/**
+	 * 더미데이터 -> 직렬화
+	 * OrderVO
+	 */
+	public void dummyData() {
+		List<OrderVO> orderList = new ArrayList<>();
+		OrderVO orderVO;
+		
+		for(String keys : orderPrice.keySet()) {
+			orderVO = new OrderVO();
+			
+			orderVO.setOrderIndex(keys);
+			orderVO.setUserIndex(returnUserIndex(orderVO.getOrderIndex()));
+			orderVO.setOrderStateIndex(makeOrderStateIndex());
+			orderVO.setPaymentIndex(makePaymentIndex());
+			orderVO.setOrderDate(makeOrderDate(orderVO.getOrderIndex()));
+			orderVO.setOrderPrice(orderPrice.get(keys));
+			orderVO.setOrderName();
+			orderVO.setOrderPost();
+			orderVO.setOrderAddress();
+			orderVO.setOrderAddressDetail();
+			
+			log.info(orderVO.toString());
+			
+			orderList.add(orderVO);
+			
+		}
+		
+		log.info("직렬화 시작");
+		
+		String fileLocation = new File("C:\\joeunmall-teamproject2\\workspace_project_sub\\joeunmall-Dummy\\src\\main\\resources\\ser").getAbsolutePath() 
+								+ "\\OrderListDummy.ser";
+		
+		try (FileOutputStream     fos = new FileOutputStream(fileLocation);
+			 BufferedOutputStream bos = new BufferedOutputStream(fos);) 
+		{
+			ObjectOutputStream out = new ObjectOutputStream(bos);
+			out.writeObject(orderList);
+			
+		} catch (IOException e) {
+			
+			log.error("직렬화 저장 에러 : " + e);
+			e.printStackTrace();
+		} 
+		
+		log.info("직렬화 종료");
+	}
+	
+	/**
+	 * 역직렬화 후 List로 반환
+	 * 
+	 * @param 역직렬화 할 파일 경로
+	 * @return 역직렬화 된 List(OrderVO)
+	 * @throws FileNotFoundException
+	 */
+	@SuppressWarnings("unchecked")
+	public List<OrderVO> getOrderListFromSerFile(String filePath) throws FileNotFoundException {
+		
+		File file = new File(filePath);
+		List<OrderVO> orderList = null;
+		
+		try (FileInputStream     fis = new FileInputStream(file);
+			 BufferedInputStream bis = new BufferedInputStream(fis);) {
+		
+			ObjectInputStream in = new ObjectInputStream(bis);
+			
+			orderList = (List<OrderVO>)in.readObject();
+			
+		} catch (IOException e) {
+			log.error("역직렬화 에러 : " + e);
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			log.error("직렬화 파일 로딩 오류 : " + e);
+			e.printStackTrace();
+		}
+		
+		return orderList;
+	} 
+	
+}

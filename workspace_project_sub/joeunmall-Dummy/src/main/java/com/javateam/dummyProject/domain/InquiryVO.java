@@ -12,28 +12,28 @@ public class InquiryVO implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	//문의번호 : ﻿000000000
+	/** 문의번호 : ﻿000000000 */
 	private String inquiryIndex;
 	
-	//고객번호 : ﻿0000000
+	/** 고객번호 : ﻿0000000 */
 	private String userIndex;
 	
-	//문의일자
+	/** 문의일자 */
 	private Date inquiryDate;
 	
-	//문의항목 : 상품, 교환/환불
+	/** 문의항목 : 상품, 교환/환불 */
 	private String inquiryCategory;
 	
-	//문의처리상태
+	/** 문의처리상태 */
 	private String inquiryState;
 	
-	//문의제목
+	/** 문의제목 */
 	private String inquiryTitle;
 	
-	//문의내용
+	/** 문의내용 */
 	private String inquiryContent;
 	
-	//문의답변
+	/** 문의답변 */
 	private String inquiryAnswer;
 
 	public String getInquiryIndex() {

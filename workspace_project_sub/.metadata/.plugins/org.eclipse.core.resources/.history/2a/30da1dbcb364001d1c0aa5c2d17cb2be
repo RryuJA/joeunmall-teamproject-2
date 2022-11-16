@@ -1,0 +1,46 @@
+package com.javateam.dummyProject.dao;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
+
+import com.javateam.dummyProject.domain.InquiryVO;
+
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * @author RJA
+ */
+
+@Repository
+@Slf4j
+public class InquiryDAO {
+	
+	private JdbcTemplate jdbcTemplate;
+	
+    @Autowired
+	public void setDataSource(DataSource dataSource) {
+		this.jdbcTemplate = new JdbcTemplate(dataSource);
+	}
+	
+	private final String INQUIRY_INSERT = "INSERT INTO inquiry_tbl VALUES("
+											+ "?, ?, ?, ?, ?, "		//문의번호, 고객번호, 문의일자, 문의항목, 문의처리상태
+											+ "?, ?, ?)";			//문의제목, 문의내용, 문의답변
+	
+	public void insertInquiryTBL(InquiryVO vo) {
+		log.info("ORDER_PRODUCT_TBL INSERT");
+		jdbcTemplate.update(INQUIRY_INSERT, 
+							vo.getOrderProductIndex(), vo.getUserIndex(), vo.getProductIndex(), 
+							vo.getProductOptionIndex(), vo.getProductCount());
+		
+	}
+	
+}
+

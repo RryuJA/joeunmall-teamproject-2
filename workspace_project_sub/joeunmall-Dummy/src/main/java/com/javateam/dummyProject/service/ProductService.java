@@ -40,6 +40,10 @@ public class ProductService {
 	//현재 카테고리
 	private int categoryNum = 0;
 	
+	//상품등록일 
+	private String dummyMonth = "01";
+	private String dummyDay = "01";
+	
 	/**
 	 * 상품번호 형식 : ﻿00_00_000
 	 * '상품등록연도 2자리'_'상품 카테고리 번호 2자리'_'상품 등록 순서 3자리'
@@ -83,16 +87,29 @@ public class ProductService {
 	/**
 	 * @return 상품등록일
 	 */	
-	private Date makeProductDate() {
+	public Date makeProductDate() {
 		Date productDate = new Date();
 		
 		String result = "2022-";
 		
-		int month = 1 + (int)(Math.random()*12);
-		result += month < 10 ? "0"+month+"-" : month+"-";
+		//다음 카테고리로 넘어갈 시, 상품등록일 1월 1일로 초기화
+		if(categoryCount[categoryNum] <= 1) {
+			dummyDay = "01";
+			dummyMonth = "01";
+		}
 		
-		int date = 1 + (int)(Math.random()*30);
-		result += date < 10 ? "0"+month : month+"";
+		//상품등록일자 1~4일자 정도  텀두고 증가
+		int randomDay = Integer.parseInt(dummyDay) + (int)Math.floor(Math.random()*4 + 1);
+		dummyDay = randomDay < 10 ? "0" + randomDay : randomDay + "";
+		
+		//일자가 30일이 넘어갈 경우, 다음달 1일로 변경
+		if(Integer.parseInt(dummyDay) > 30) {
+			dummyDay = "01";
+			dummyMonth = Integer.parseInt(dummyMonth) < 9 ? 
+							"0" + (Integer.parseInt(dummyMonth) + 1) : (Integer.parseInt(dummyMonth) + 1) + "";
+		}
+		
+		result += dummyMonth + "-" + dummyDay;
 		
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		try {	// parse 함수 사용 시 ParseException 처리 필요
@@ -103,7 +120,7 @@ public class ProductService {
 		}
 		
 		return null;
-	}
+	}	
 	
 	// 이미지 경로
 	private String imagePath[] = {"01_tshirt", "02_pants", "03_onepiece", "04_cardigan", "05_jacket"};
@@ -114,9 +131,7 @@ public class ProductService {
 	 * @return 대표이미지 경로
 	 */
 	private String makeProductImagePath(String productIndex) {
-		String path = "C:/joeunmall-teamproject/product_images/";
-		
-		path += imagePath[categoryNum] + "/" + productIndex + "_thumbnail.jpg";
+		String path = imagePath[categoryNum] + "/" + productIndex + "_thumbnail.jpg";
 		
 		return path;
 	}
@@ -205,7 +220,7 @@ public class ProductService {
 				productVO.setProductDate(makeProductDate());
 				productVO.setProductInfo(productVO.getProductName() + " DummyInfo");			
 				
-				System.out.println(productVO.toString());
+				log.info(productVO.toString());
 				
 				prList.add(productVO);
 			}

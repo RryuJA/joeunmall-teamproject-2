@@ -11,7 +11,6 @@
 <fullyQualifiedTypeName name="com.javateam.dummyProject.service.ProductImageService"/>
 <fullyQualifiedTypeName name="com.javateam.dummyProject.service.ProductOptionService"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
-<fullyQualifiedTypeName name="com.javateam.dummyProject.domain.InquiryVO"/>
 <fullyQualifiedTypeName name="com.javateam.dummyProject.service.InquiryService"/>
 <fullyQualifiedTypeName name="com.javateam.dummyProject.dao.ProductDAO"/>
 <fullyQualifiedTypeName name="com.javateam.dummyProject.dao.ProductImageDAO"/>
@@ -23,8 +22,24 @@
 <fullyQualifiedTypeName name="com.javateam.dummyProject.domain.UserVO"/>
 <fullyQualifiedTypeName name="com.javateam.dummyProject.service.OrderProductService"/>
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
-<fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="com.javateam.dummyProject.domain.ProductVO"/>
 <fullyQualifiedTypeName name="com.javateam.dummyProject.dao.OrderProductDAO"/>
+<fullyQualifiedTypeName name="com.javateam.dummyProject.service.OrderService"/>
+<fullyQualifiedTypeName name="com.javateam.dummyProject.dao.OrderDAO"/>
+<fullyQualifiedTypeName name="java.util.LinkedHashMap"/>
+<fullyQualifiedTypeName name="com.javateam.dummyProject.domain.ProductVO"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+<fullyQualifiedTypeName name="org.apache.taglibs.standard.lang.jstl.parser.ParseException"/>
+<fullyQualifiedTypeName name="com.javateam.dummyProject.domain.InquiryVO"/>
+<fullyQualifiedTypeName name="com.javateam.dummyProject.dao.InquiryDAO"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="com.javateam.dummyProject.domain.ReviewVO"/>
+<fullyQualifiedTypeName name="com.javateam.dummyProject.domain.OrderVO"/>
 <fullyQualifiedTypeName name="com.javateam.dummyProject.domain.OrderProductVO"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.javateam.dummyProject.service.ReviewService"/>
+<fullyQualifiedTypeName name="org.springframework.web.servlet.handler.MatchableHandlerMapping"/>
+<fullyQualifiedTypeName name="java.lang.Math"/>
 </qualifiedTypeNameHistroy>

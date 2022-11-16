@@ -1,0 +1,196 @@
+package com.javateam.dummyProject.service;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.javateam.dummyProject.domain.OrderProductVO;
+import com.javateam.dummyProject.domain.ProductVO;
+import com.javateam.dummyProject.domain.UserVO;
+
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * @author RJA
+ */
+
+@Service
+@Slf4j
+public class OrderProductService {
+	
+	/** USER_TBL에 저장된 고객정보 50명 랜덤순서로 저장 */
+	private List<UserVO> userDummy;
+	
+	/** PRODUCT_TBL에 저장된 상품정보 200개 랜덤순서로 저장 */
+	private List<ProductVO> productDummy;
+	
+	// 임의 날짜
+	private String dummyDate;
+	private String dummyYear = "2020";
+	private String dummyMonth = "08";
+	private String dummyDay = "12";
+	
+	private int randomNum = 0;
+	private int nowNum = 10;
+	
+	/**
+	 * UserDAO.selectUserTBLRandom() 결과를 가져옴
+	 * @param userDummy
+	 */
+	public void setUserDummy(List<UserVO> userDummy) {
+		this.userDummy = userDummy;
+	}
+	
+	/**
+	 * ProductDAO.selectProductTBLRandom() 결과를 가져옴
+	 * @param productDummy
+	 */
+	public void setProductDummy(List<ProductVO> productDummy) {
+		this.productDummy = productDummy;
+	}
+	
+	/**
+	 * 주문상품번호 형식 : ﻿000000_0000000_0_OR0
+	 * '주문일자 6자리'_'고객번호 7자리'_'고객의 당일 주문 순서 1자리'_OR (+) '주문상품번호'  
+	 * 주문상품번호는 1~5까지만 가능
+	 * @return 주문상품번호
+	 */	
+	private String makeOrderProductIndex() {
+		if(randomNum < nowNum) {
+			randomNum = (int)Math.floor(Math.random()*5 + 1);
+			nowNum = 1;
+			
+			//주문일자 1~4일자 정도  텀두고 증가
+			int randomDay = Integer.parseInt(dummyDay) + (int)Math.floor(Math.random()*4 + 1);
+			dummyDay = randomDay < 10 ? "0" + randomDay : randomDay + "";
+			
+			//일자가 30일이 넘어갈 경우, 다음달 1일로 변경
+			if(Integer.parseInt(dummyDay) > 30) {
+				dummyDay = "01";
+				dummyMonth = Integer.parseInt(dummyMonth) < 9 ? 
+								"0" + (Integer.parseInt(dummyMonth) + 1) : (Integer.parseInt(dummyMonth) + 1) + "";
+			}
+			
+			dummyDate = "22" + dummyMonth + dummyDay;
+			//이미 사용한 유저Data 제거
+			userDummy.remove(0);
+		}
+		String result = dummyDate + "_";
+		
+		//고객의 당일 주문 순서는 1로 고정
+		result += userDummy.get(0).getUserIndex() + "_1_";
+		
+		result += "OR" + nowNum;
+		nowNum += 1;
+		
+		return result;
+	}
+	
+	/**
+	 * @return 주문상품번호에서 사용된 고객번호
+	 */
+	private String getUserIndex() {
+		return userDummy.get(0).getUserIndex();
+	}
+	
+	/**
+	 * @return DB에서 가져온 상품번호
+	 */
+	private String getProductIndex() {
+		return productDummy.get((int)(Math.random() * productDummy.size())).getProductIndex();
+	}
+	
+	/**
+	 * 상품개수 랜덤으로 return
+	 * @return productCount
+	 */
+	private int getProductCount() {
+		return (int)(Math.random() * 5 + 1);
+	}
+	
+
+	/**
+	 * 더미데이터 -> 직렬화
+	 * OrderProductVO
+	 */
+	public void dummyData() {
+		List<OrderProductVO> orderProductList = new ArrayList<>();
+		OrderProductVO orderProductVO;
+		
+		for(int i=0; i<100; i++) {
+			orderProductVO = new OrderProductVO();
+			
+			orderProductVO.setOrderProductIndex(makeOrderProductIndex());
+			orderProductVO.setUserIndex(getUserIndex());
+			orderProductVO.setProductIndex(getProductIndex());
+			orderProductVO.setProductOptionIndex(orderProductVO.getProductIndex() + "_OP1");
+			orderProductVO.setProductCount(getProductCount());
+			
+			log.info(orderProductVO.toString());
+			
+			orderProductList.add(orderProductVO);
+			
+		}
+		
+		log.info("직렬화 시작");
+		
+		String fileLocation = new File("C:\\joeunmall-teamproject2\\workspace_project_sub\\joeunmall-Dummy\\src\\main\\resources\\ser").getAbsolutePath() 
+								+ "\\OrderProductListDummy.ser";
+		
+		try (FileOutputStream     fos = new FileOutputStream(fileLocation);
+			 BufferedOutputStream bos = new BufferedOutputStream(fos);) 
+		{
+			ObjectOutputStream out = new ObjectOutputStream(bos);
+			out.writeObject(orderProductList);
+			
+		} catch (IOException e) {
+			
+			log.error("직렬화 저장 에러 : " + e);
+			e.printStackTrace();
+		} 
+		
+		log.info("직렬화 종료");
+	}
+	
+	/**
+	 * 역직렬화 후 List로 반환
+	 * 
+	 * @param 역직렬화 할 파일 경로
+	 * @return 역직렬화 된 List(OrderProductVO)
+	 * @throws FileNotFoundException
+	 */
+	@SuppressWarnings("unchecked")
+	public List<OrderProductVO> getOrderProductListFromSerFile(String filePath) throws FileNotFoundException {
+		
+		File file = new File(filePath);
+		List<OrderProductVO> orderProductList = null;
+		
+		try (FileInputStream     fis = new FileInputStream(file);
+			 BufferedInputStream bis = new BufferedInputStream(fis);) {
+		
+			ObjectInputStream in = new ObjectInputStream(bis);
+			
+			orderProductList = (List<OrderProductVO>)in.readObject();
+			
+		} catch (IOException e) {
+			log.error("역직렬화 에러 : " + e);
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			log.error("직렬화 파일 로딩 오류 : " + e);
+			e.printStackTrace();
+		}
+		
+		return orderProductList;
+	} 
+	
+}

@@ -36,11 +36,15 @@ public class OrderProductService {
 	
 	// 임의 날짜
 	private String dummyDate;
-	private String dummyMonth = "08";
+	private String dummyYear = "19";
+	private String dummyMonth = "01";
 	private String dummyDay = "12";
 	
+	// 주문상품수 랜덤
 	private int randomNum = 0;
 	private int nowNum = 10;
+	
+	private UserVO userTemp;
 	
 	/**
 	 * UserDAO.selectUserTBLRandom() 결과를 가져옴
@@ -59,7 +63,7 @@ public class OrderProductService {
 	}
 	
 	/**
-	 * 주문상품번호 형식 : ﻿00_00_000_OP0
+	 * 주문상품번호 형식 : ﻿000000_0000000_0_OR0
 	 * '주문일자 6자리'_'고객번호 7자리'_'고객의 당일 주문 순서 1자리'_OR (+) '주문상품번호'  
 	 * 주문상품번호는 1~5까지만 가능
 	 * @return 주문상품번호
@@ -80,14 +84,20 @@ public class OrderProductService {
 								"0" + (Integer.parseInt(dummyMonth) + 1) : (Integer.parseInt(dummyMonth) + 1) + "";
 			}
 			
-			dummyDate = "22" + dummyMonth + dummyDay;
-			//이미 사용한 유저Data 제거
-			userDummy.remove(0);
+			if(Integer.parseInt(dummyMonth) > 12) {
+				dummyMonth = "01";
+				dummyYear = "" + (Integer.parseInt(dummyYear) + 1);
+			}
+			
+			dummyDate = dummyYear + dummyMonth + dummyDay;
+			
+			//UserDummy 데이터중 1개 임시저장
+			userTemp = userDummy.get((int)(Math.random() * userDummy.size()));
 		}
 		String result = dummyDate + "_";
 		
 		//고객의 당일 주문 순서는 1로 고정
-		result += userDummy.get(0).getUserIndex() + "_1_";
+		result += userTemp.getUserIndex() + "_1_";
 		
 		result += "OR" + nowNum;
 		nowNum += 1;
@@ -99,7 +109,7 @@ public class OrderProductService {
 	 * @return 주문상품번호에서 사용된 고객번호
 	 */
 	private String getUserIndex() {
-		return userDummy.get(0).getUserIndex();
+		return userTemp.getUserIndex();
 	}
 	
 	/**
@@ -126,7 +136,7 @@ public class OrderProductService {
 		List<OrderProductVO> orderProductList = new ArrayList<>();
 		OrderProductVO orderProductVO;
 		
-		for(int i=0; i<100; i++) {
+		for(int i=0; i<1700; i++) {
 			orderProductVO = new OrderProductVO();
 			
 			orderProductVO.setOrderProductIndex(makeOrderProductIndex());
@@ -138,7 +148,6 @@ public class OrderProductService {
 			log.info(orderProductVO.toString());
 			
 			orderProductList.add(orderProductVO);
-			
 		}
 		
 		log.info("직렬화 시작");

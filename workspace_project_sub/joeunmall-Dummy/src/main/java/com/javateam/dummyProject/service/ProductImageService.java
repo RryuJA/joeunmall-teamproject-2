@@ -104,9 +104,7 @@ public class ProductImageService {
 	 * @return 상품이미지 경로
 	 */
 	private String makeProductImagePath() {
-		String path = "C:/joeunmall-teamproject/product_images/";
-		
-		path += imagePath[categoryNum] + "/" + productIndex + "_" + (productImageCount-1) + ".jpg";
+		String path = imagePath[categoryNum] + "/" + productIndex + "_" + (productImageCount-1) + ".jpg";
 		
 		return path;
 	}

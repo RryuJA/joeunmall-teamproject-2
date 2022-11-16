@@ -57,7 +57,7 @@ public class OrderService {
 	}
 	
 	/**
-	 * ProductDAO.selectProductTBLALL() 결과를 가져옴
+	 * ProductDAO.selectProductTBLAll() 결과를 가져옴
 	 * @param productDummy
 	 */
 	public void setProductDummy(List<ProductVO> productDummy) {
@@ -78,20 +78,20 @@ public class OrderService {
 	 * value: 총액
 	 */
 	private void makePriceMap() {
-		for(int i=0; i<100; i++) {
+		for(int i=0; i<orderProductDummy.size(); i++) {
 			//주문상품List에서 주문번호만 가져옴
 			String orderIndex = orderProductDummy.get(i).getOrderProductIndex().substring(0, 16);
 			
 			//orderPrice Map에 주문번호가 이미 있을 경우
 			if(orderPrice.containsKey(orderIndex)) {
 				int price = orderPrice.get(orderIndex);
-				price += searchProductPrice(orderProductDummy.get(i));
+				price += (searchProductPrice(orderProductDummy.get(i)) * orderProductDummy.get(i).getProductCount());
 				
 				//value 변경 (총액 누적)
 				orderPrice.put(orderIndex, price);
 				
 			} else { //orderPrice Map에 주문번호가 없는 경우
-				orderPrice.put(orderIndex, searchProductPrice(orderProductDummy.get(i)));
+				orderPrice.put(orderIndex, searchProductPrice(orderProductDummy.get(i)) * orderProductDummy.get(i).getProductCount());
 			}
 		}
 	}
@@ -181,7 +181,7 @@ public class OrderService {
 		makePriceMap();
 		
 		//userMap에 <고객번호, 고객VO>로 저장
-		for(int i=0; i<50; i++) {
+		for(int i=0; i<userDummy.size(); i++) {
 			userMap.put(userDummy.get(i).getUserIndex(), userDummy.get(i));
 		}
 	
