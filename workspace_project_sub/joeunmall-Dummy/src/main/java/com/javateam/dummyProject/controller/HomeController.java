@@ -15,6 +15,7 @@ import com.javateam.dummyProject.dao.OrderProductDAO;
 import com.javateam.dummyProject.dao.ProductDAO;
 import com.javateam.dummyProject.dao.ProductImageDAO;
 import com.javateam.dummyProject.dao.ProductOptionDAO;
+import com.javateam.dummyProject.dao.ReviewDAO;
 import com.javateam.dummyProject.dao.UserDAO;
 import com.javateam.dummyProject.domain.InquiryVO;
 import com.javateam.dummyProject.domain.OrderProductVO;
@@ -22,6 +23,7 @@ import com.javateam.dummyProject.domain.OrderVO;
 import com.javateam.dummyProject.domain.ProductImageVO;
 import com.javateam.dummyProject.domain.ProductOptionVO;
 import com.javateam.dummyProject.domain.ProductVO;
+import com.javateam.dummyProject.domain.ReviewVO;
 import com.javateam.dummyProject.domain.UserVO;
 import com.javateam.dummyProject.service.InquiryService;
 import com.javateam.dummyProject.service.OrderProductService;
@@ -53,12 +55,13 @@ public class HomeController {
 	private OrderProductDAO orderProductDAO;
 	private OrderDAO orderDAO;
 	private InquiryDAO inquiryDAO;
+	private ReviewDAO reviewDAO;
 	
 	@Autowired
 	public HomeController(UserService userSvc, ProductService productSvc, ProductImageService productImageSvc, ProductOptionService productOptionSvc, 
 						  OrderProductService orderProductSvc, OrderService orderSvc, InquiryService inquirySvc, ReviewService reviewSvc,
 						  UserDAO userDAO, ProductDAO productDAO, ProductImageDAO productImageDAO, ProductOptionDAO productOptionDAO, 
-						  OrderProductDAO orderProductDAO, OrderDAO orderDAO, InquiryDAO inquiryDAO) {
+						  OrderProductDAO orderProductDAO, OrderDAO orderDAO, InquiryDAO inquiryDAO, ReviewDAO reviewDAO) {
 		this.userSvc = userSvc;
 		this.productSvc = productSvc;
 		this.productImageSvc = productImageSvc;
@@ -75,6 +78,7 @@ public class HomeController {
 		this.orderProductDAO = orderProductDAO;
 		this.orderDAO = orderDAO;
 		this.inquiryDAO = inquiryDAO;
+		this.reviewDAO = reviewDAO;
 	}
 	
 	@GetMapping("/")
@@ -173,7 +177,12 @@ public class HomeController {
 			inquiryDAO.insertInquiryTBL(inquiryList.get(i));
 		}*/
 		
-		
+		// ReviewDAO
+		// C:\\joeunmall-teamproject2\\workspace_project_sub\\joeunmall-Dummy\\src\\main\\resources\\ser\\ReviewListDummy.ser
+		/*List<ReviewVO> reviewList = reviewSvc.getReviewListFromSerFile("C:\\joeunmall-teamproject2\\workspace_project_sub\\joeunmall-Dummy\\src\\main\\resources\\ser\\ReviewListDummy.ser"); 
+		for(int i=0; i<reviewList.size(); i++) {
+			reviewDAO.insertReviewTBL(reviewList.get(i));
+		}*/
 		
 		//--------------------------------------------------------------------------------------------------
 		

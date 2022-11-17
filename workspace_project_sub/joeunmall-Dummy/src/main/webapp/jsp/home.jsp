@@ -5,7 +5,7 @@
 <html lang="ko-kr">
 <head>
 <meta charset="UTF-8">
-<title>Test 출력</title>
+<title>Test</title>
 </head>
 <body>
 
